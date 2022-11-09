@@ -1,4 +1,7 @@
-require('dotenv').config({path:'./.env'});
+const dotenv = require("dotenv")
+const envFile = process.env.NODE_ENV === 'dev'? 'dev.env':'prod.env'
+dotenv.config({ path: envFile })
+console.log(envFile)
 const TelegramAPI = require('node-telegram-bot-api')
 const {gameOptions, againOptions} = require('./options.js')
 const bot = new TelegramAPI(process.env.TOKEN,{polling: true})
