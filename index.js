@@ -2,6 +2,7 @@ const dotenv = require("dotenv")
 const envFile = process.env.NODE_ENV === 'dev'? 'dev.env':'prod.env'
 dotenv.config({ path: envFile })
 console.log("envFile", envFile)
+const {quizes} = require("./quiz/js/index.js")
 const TelegramAPI = require('node-telegram-bot-api')
 const {gameOptions, againOptions} = require('./options.js')
 const bot = new TelegramAPI(process.env.TOKEN,{polling: true})
@@ -9,13 +10,25 @@ const bot = new TelegramAPI(process.env.TOKEN,{polling: true})
 
 const start = () => {
     const chats = {};
+    const quizRun = {};
 
     bot.setMyCommands([
         {command: "/start", description: "Запуск бота"},
         {command: "/info", description: "Информация о боте"},
         {command: "/game", description: "Играть"},
+        {command: "/quiz", description: "Лотерея"},
     ])
 
+
+    const startQuiz = async chatId => {
+        console.log("quizes", quizes);
+        let q = Math.floor(Math.random()*quizes.length) + 1;
+        let curQuiz= quizes.find(qw=>qw.id==q);
+        quizRun[chatId] = curQuiz;
+        
+        console.log("curQuiz", curQuiz);
+        return bot.sendPoll(chatId, question=curQuiz.question, pollOptions=curQuiz.options, {id: 123, type: "quiz", correct_option_id:curQuiz.correct_option_id, open_period:5, is_anonymous: false});
+    }
 
 
     const startGame = async chatId => {
@@ -39,9 +52,15 @@ const start = () => {
 
         if (text=== '/game') {
             return startGame(chatId)
+        }        
+        
+        if (text=== '/quiz') {
+            let ret = await startQuiz(chatId)
+            console.log("ret:", ret)
+            return
         }
 
-       // console.log(msg);
+        console.log(msg);
         return bot.sendMessage(chatId, `Я тебя не понял`);
     })
     
@@ -57,9 +76,11 @@ const start = () => {
             return bot.sendMessage(chatId, `Ты проиграл, я загадал ${chats[chatId]}`, againOptions);
         }
         //bot.sendMessage(chatId, `Ты выбрал цифру ${data}`);
-        //console.log(msg)
+        console.log(msg)
     })
 
+    bot.on('poll_answer', (msg)=>console.log("poll_answer: ", msg))
+    bot.on('poll', (msg)=>console.log("poll: ", msg))
 
     bot.on("polling_error", (msg) => console.log(msg));
 }
