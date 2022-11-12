@@ -38,9 +38,11 @@ mongoose.connection.on('open', () => {
     ]);
 
     bot.use(session());
-    bot.use(getUserInfo);
+
 
     bot.use(stage.middleware()); 
+    bot.use(getUserInfo);
+    
     bot.command('/start',(ctx) => ctx.scene.enter('start'));
 
     bot.catch((error) => {

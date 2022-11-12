@@ -117,3 +117,14 @@
   lastActivity: 1668264763869,
   __v: 0
 }
+[2022-11-12T14:54:20.383Z] [debug]Logging initialized at debug level
+[2022-11-12T14:54:31.128Z] [debug][312014537/fialkovod]: New user has been created
+[2022-11-12T14:54:31.164Z] [debug][312014537/fialkovod]: {
+  _id: '312014537',
+  created: 1668264871130,
+  username: 'fialkovod',
+  name: 'Alexey',
+  lastActivity: 1668264871130,
+  __v: 0
+}
+[2022-11-12T15:04:41.046Z] [debug]Logging initialized at debug level
