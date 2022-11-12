@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import logger from './util/logger.js';
 import { getUserInfo } from './middlewares/user-info.js';
 import startScene from './scenes/start/index.js';
+import workScene from './scenes/work/index.js';
 import dotenv from "dotenv"
 //import { session } from 'telegraf';
 //const dotenv = require("dotenv")
@@ -30,6 +31,7 @@ mongoose.connection.on('open', () => {
     const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
     const stage = new Scenes.Stage([
         startScene,
+        workScene,
         /*searchScene,
         moviesScene,
         settingsScene,
@@ -44,7 +46,9 @@ mongoose.connection.on('open', () => {
     bot.use(getUserInfo);
     
     bot.command('/start',(ctx) => ctx.scene.enter('start'));
-
+    bot.command('/work',(ctx) => ctx.scene.enter('work'));
+    
+    
     bot.catch((error) => {
         logger.error(undefined, 'Global error has happened, %O', error);
     });

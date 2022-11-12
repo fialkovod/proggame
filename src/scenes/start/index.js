@@ -1,11 +1,9 @@
-//import Stage from 'telegraf/stage';
-//import Scene from 'telegraf/scenes/base';
 import { Scenes, session } from 'telegraf';
 //import { languageChangeAction } from './actions';
 //import { getLanguageKeyboard } from './helpers';
 import logger from '../../util/logger.js';
 import User from '../../models/User.js';
-//import { getMainKeyboard } from '../../util/keyboards';
+import { getMainKeyboard } from '../../util/keyboards.js';
 
 const { leave } = Scenes.Stage;
 const start = new Scenes.BaseScene('start');
@@ -13,7 +11,7 @@ const start = new Scenes.BaseScene('start');
 start.enter(async (ctx) => {
     const uid = String(ctx.from.id);
     const user = await User.findById(uid);
-    //const { mainKeyboard } = getMainKeyboard(ctx);
+    const { mainKeyboard } = getMainKeyboard(ctx);
   
     if (user) {
       await ctx.reply("user already registered");
@@ -36,9 +34,8 @@ start.enter(async (ctx) => {
   });
   
   start.leave(async (ctx) => {
-    //const { mainKeyboard } = getMainKeyboard(ctx);
-  
-    await ctx.reply('дальше');
+    const { mainKeyboard } = getMainKeyboard(ctx);  
+    await ctx.reply('дальше', mainKeyboard);
   });
   
   start.command('saveme', leave());

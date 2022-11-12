@@ -128,3 +128,56 @@
   __v: 0
 }
 [2022-11-12T15:04:41.046Z] [debug]Logging initialized at debug level
+[2022-11-12T18:09:26.276Z] [debug]Logging initialized at debug level
+[2022-11-12T18:11:43.808Z] [debug]Logging initialized at debug level
+[2022-11-12T18:12:16.631Z] [error]: Global error has happened, TypeError: mainKeyboard.resize(...).extra is not a function
+    at getMainKeyboard (file:///C:/Users/alexe/projects/proggame/src/util/keyboards.js:34:40)
+    at file:///C:/Users/alexe/projects/proggame/src/scenes/start/index.js:14:30
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async SceneContextScene.enter (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:16)
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-12T18:13:40.426Z] [debug]Logging initialized at debug level
+[2022-11-12T18:13:45.347Z] [debug][312014537/fialkovod]: New user has been created
+[2022-11-12T18:13:45.382Z] [debug][312014537/fialkovod]: {
+  _id: '312014537',
+  created: 1668276825348,
+  username: 'fialkovod',
+  name: 'Alexey',
+  lastActivity: 1668276825348,
+  __v: 0
+}
+[2022-11-12T18:14:48.858Z] [debug]Logging initialized at debug level
+[2022-11-12T18:28:53.302Z] [debug]Logging initialized at debug level
+[2022-11-12T18:41:39.892Z] [debug]Logging initialized at debug level
+[2022-11-12T18:41:45.005Z] [debug]Logging initialized at debug level
+[2022-11-12T18:44:31.413Z] [debug]Logging initialized at debug level
+[2022-11-12T18:45:06.766Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-12T18:45:06.773Z] [error]: Global error has happened, ReferenceError: getSettingsMainKeyboard is not defined
+    at file:///C:/Users/alexe/projects/proggame/src/scenes/work/index.js:22:13
+    at execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:160:31
+    at execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:460:20
+    at SceneContextScene.enter (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+[2022-11-12T18:48:08.726Z] [debug]Logging initialized at debug level
+[2022-11-12T18:48:13.443Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-12T18:48:13.448Z] [error]: Global error has happened, ReferenceError: Extra is not defined
+    at getWorkMainKeyboard (file:///C:/Users/alexe/projects/proggame/src/scenes/work/helpers.js:7:3)
+    at file:///C:/Users/alexe/projects/proggame/src/scenes/work/index.js:23:40
+    at execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:160:31
+    at execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:460:20
+    at SceneContextScene.enter (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-12T18:49:03.227Z] [debug]Logging initialized at debug level
