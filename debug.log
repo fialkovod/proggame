@@ -1,0 +1,119 @@
+[2022-11-12T13:58:49.576Z] [debug]Logging initialized at debug level
+[2022-11-12T13:59:48.823Z] [debug]Logging initialized at debug level
+[2022-11-12T14:00:07.694Z] [debug]Logging initialized at debug level
+[2022-11-12T14:01:28.251Z] [debug]Logging initialized at debug level
+[2022-11-12T14:05:01.023Z] [debug]Logging initialized at debug level
+[2022-11-12T14:10:32.463Z] [debug]Logging initialized at debug level
+[2022-11-12T14:14:50.656Z] [debug]Logging initialized at debug level
+[2022-11-12T14:16:34.272Z] [debug]Logging initialized at debug level
+[2022-11-12T14:18:20.478Z] [debug]Logging initialized at debug level
+[2022-11-12T14:19:08.953Z] [error]: Global error has happened, TypeError: Cannot read properties of undefined (reading 'language')
+    at getUserInfo (file:///C:/Users/alexey/projects/proggame/src/middlewares/user-info.js:11:20)
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\session.js:29:15
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-12T14:19:17.883Z] [error]: Global error has happened, TypeError: Cannot read properties of undefined (reading 'language')
+    at getUserInfo (file:///C:/Users/alexey/projects/proggame/src/middlewares/user-info.js:11:20)
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\session.js:29:15
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-12T14:21:32.289Z] [debug]Logging initialized at debug level
+[2022-11-12T14:21:38.598Z] [error]: Global error has happened, TypeError: Cannot read properties of undefined (reading 'language')
+    at getUserInfo (file:///C:/Users/alexey/projects/proggame/src/middlewares/user-info.js:11:20)
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\session.js:29:15
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-12T14:22:43.072Z] [debug]Logging initialized at debug level
+[2022-11-12T14:22:46.372Z] [error]: Global error has happened, TypeError: Cannot read properties of undefined (reading 'enter')
+    at file:///C:/Users/alexey/projects/proggame/src/bot.js:43:34
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:116:20
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:166:111
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+[2022-11-12T14:26:44.518Z] [debug]Logging initialized at debug level
+[2022-11-12T14:26:49.454Z] [error]: Global error has happened, TypeError: Cannot read properties of undefined (reading 'enter')
+    at file:///C:/Users/alexey/projects/proggame/src/bot.js:45:19
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:116:20
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:166:111
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+[2022-11-12T14:30:47.441Z] [debug]Logging initialized at debug level
+[2022-11-12T14:32:14.420Z] [debug]Logging initialized at debug level
+[2022-11-12T14:32:23.161Z] [debug]Logging initialized at debug level
+[2022-11-12T14:32:27.985Z] [error]: Global error has happened, TypeError: Cannot read properties of undefined (reading 'enter')
+    at file:///C:/Users/alexey/projects/proggame/src/bot.js:45:19
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:116:20
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:166:111
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+[2022-11-12T14:36:54.417Z] [debug]Logging initialized at debug level
+[2022-11-12T14:36:59.049Z] [error]: Global error has happened, TypeError: Cannot read properties of undefined (reading 'enter')
+    at file:///C:/Users/alexey/projects/proggame/src/bot.js:44:45
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:166:111
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-12T14:37:46.003Z] [debug]Logging initialized at debug level
+[2022-11-12T14:37:50.817Z] [debug][312014537/fialkovod]: New user has been created
+[2022-11-12T14:40:52.257Z] [debug]Logging initialized at debug level
+[2022-11-12T14:40:56.200Z] [error]: Global error has happened, TypeError: Cannot set properties of undefined (setting 'language')
+    at getUserInfo (file:///C:/Users/alexey/projects/proggame/src/middlewares/user-info.js:17:28)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\session.js:29:9
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-12T14:45:05.078Z] [debug]Logging initialized at debug level
+[2022-11-12T14:45:27.050Z] [debug]Logging initialized at debug level
+[2022-11-12T14:52:09.492Z] [debug]Logging initialized at debug level
+[2022-11-12T14:52:43.868Z] [debug][312014537/fialkovod]: New user has been created
+[2022-11-12T14:52:43.917Z] [debug][312014537/fialkovod]: {
+  _id: '312014537',
+  created: 1668264763869,
+  username: 'fialkovod',
+  name: 'Alexey undefined',
+  lastActivity: 1668264763869,
+  __v: 0
+}

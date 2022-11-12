@@ -2,9 +2,10 @@
   "name": "proggame",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/bot.js",
+  "type": "module",
   "scripts": {
-    "dev": "set NODE_ENV=dev&& nodemon index.js",
+    "dev": "set NODE_ENV=dev&& nodemon ./src/bot.js",
     "start": "set NODE_ENV=prod&& node index.js"
   },
   "keywords": [],

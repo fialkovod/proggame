@@ -1,4 +1,3 @@
-import { ContextMessageUpdate } from 'telegraf';
 import util from 'util';
 import winston, { format } from 'winston';
 
@@ -44,4 +43,4 @@ const loggerWithCtx = {
     logger.error(prepareMessage(ctx, msg, ...data))
 };
 
-export default loggerWithCtx;
+export default loggerWithCtx
