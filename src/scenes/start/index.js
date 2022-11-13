@@ -5,13 +5,13 @@ import logger from '../../util/logger.js';
 import User from '../../models/User.js';
 import { getMainKeyboard } from '../../util/keyboards.js';
 
-const { leave } = Scenes.Stage;
+const { enter, leave } = Scenes.Stage;
 const start = new Scenes.BaseScene('start');
 
 start.enter(async (ctx) => {
     const uid = String(ctx.from.id);
     const user = await User.findById(uid);
-    const { mainKeyboard } = getMainKeyboard(ctx);
+    const { mainKeyboard, mainKeyboardWork } = getMainKeyboard(ctx);
   
     if (user) {
       await ctx.reply("user already registered");
@@ -31,18 +31,20 @@ start.enter(async (ctx) => {
       logger.debug(ctx, newUser);
       //await ctx.reply('Choose language / Выбери язык', getLanguageKeyboard());
     }
-  });
+});
   
-  start.leave(async (ctx) => {
+start.leave(async (ctx) => {
     const { mainKeyboard } = getMainKeyboard(ctx);  
-    await ctx.reply('дальше', mainKeyboard);
-  });
-  
-  start.command('saveme', leave());
+    await ctx.reply('выход из сцены старт', mainKeyboard);
+});
+
+start.command("back", leave());
+
+
   //start.action(/languageChange/, languageChangeAction);
   /*start.action(/confirmAccount/, async (ctx: ContextMessageUpdate) => {
     await ctx.answerCbQuery();
     ctx.scene.leave();
-  });*/
+    });*/
   
-  export default start;
+export default start;

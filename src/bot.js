@@ -6,7 +6,9 @@ import logger from './util/logger.js';
 import { getUserInfo } from './middlewares/user-info.js';
 import startScene from './scenes/start/index.js';
 import workScene from './scenes/work/index.js';
+import aboutScene from './scenes/about/index.js';
 import dotenv from "dotenv"
+import { getMainKeyboard, getBackKeyboard } from './util/keyboards.js';
 //import { session } from 'telegraf';
 //const dotenv = require("dotenv")
 const envFile = process.env.NODE_ENV === 'dev'? 'dev.env':'prod.env'
@@ -32,6 +34,7 @@ mongoose.connection.on('open', () => {
     const stage = new Scenes.Stage([
         startScene,
         workScene,
+        aboutScene,
         /*searchScene,
         moviesScene,
         settingsScene,
@@ -47,7 +50,11 @@ mongoose.connection.on('open', () => {
     
     bot.command('/start',(ctx) => ctx.scene.enter('start'));
     bot.command('/work',(ctx) => ctx.scene.enter('work'));
-    
+    bot.command('/about',(ctx) => ctx.scene.enter('about'));
+    const { mainKeyboard, mainKeyboardWork, mainKeyboardSupport, mainKeyboardAbout } = getMainKeyboard();
+
+    bot.hears(mainKeyboardWork, (ctx) => ctx.scene.enter('work'));
+    bot.hears(mainKeyboardAbout, (ctx) => ctx.scene.enter('about'));
     
     bot.catch((error) => {
         logger.error(undefined, 'Global error has happened, %O', error);

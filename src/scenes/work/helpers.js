@@ -3,35 +3,19 @@ import { Markup} from 'telegraf';
 /**
  * Returns main settings keyboard
  */
-export function getWorkMainKeyboard(ctx) {
-  return Extra.HTML().markup((m) =>
-    m.inlineKeyboard(
-      [
-        m.callbackButton(
-          'Про работу',
-          JSON.stringify({ a: 'accountSummary' }),
-          false
-        )
-      ],
-      {}
-    )
-  );
+export function getWorkInlineKeyboard(ctx) {
+    return Markup.inlineKeyboard([
+        Markup.button.callback("Назад2", "/back"),
+
+    ])
 }
 
 /**
  * Returns account summary keyboard
  */
 export function getAccountSummaryKeyboard(ctx) {
-  return Extra.HTML().markup((m) =>
-    m.inlineKeyboard(
-      [
-        m.callbackButton(
-          "Назад",
-          JSON.stringify({ a: 'closeAccountSummary' }),
-          false
-        )
-      ],
-      {}
-    )
-  );
+    return Markup.inlineKeyboard([
+        Markup.button.callback("Назад1", "Назад3"),
+
+    ])
 }

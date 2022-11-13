@@ -1,5 +1,5 @@
 import {
-  getWorkMainKeyboard,
+  getWorkInlineKeyboard,
   getAccountSummaryKeyboard,
 } from './helpers.js';
 import logger from '../../util/logger.js';

@@ -181,3 +181,168 @@
     at SceneContextScene.enter (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
 [2022-11-12T18:49:03.227Z] [debug]Logging initialized at debug level
+[2022-11-13T11:43:55.365Z] [debug]Logging initialized at debug level
+[2022-11-13T11:47:50.625Z] [debug]Logging initialized at debug level
+[2022-11-13T11:55:22.723Z] [debug]Logging initialized at debug level
+[2022-11-13T11:55:22.935Z] [debug]Logging initialized at debug level
+[2022-11-13T12:15:37.467Z] [debug]Logging initialized at debug level
+[2022-11-13T12:15:37.604Z] [debug]Logging initialized at debug level
+[2022-11-13T12:17:27.798Z] [debug]Logging initialized at debug level
+[2022-11-13T12:17:27.912Z] [debug]Logging initialized at debug level
+[2022-11-13T12:19:46.973Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:19:46.982Z] [error]: Global error has happened, ReferenceError: Extra is not defined
+    at getWorkMainKeyboard (file:///C:/Users/alexey/projects/proggame/src/scenes/work/helpers.js:7:3)
+    at file:///C:/Users/alexey/projects/proggame/src/scenes/work/index.js:23:40
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:160:31
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:460:20
+    at SceneContextScene.enter (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-13T12:20:16.795Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:22:25.522Z] [debug]Logging initialized at debug level
+[2022-11-13T12:22:25.649Z] [debug]Logging initialized at debug level
+[2022-11-13T12:22:45.641Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:22:45.650Z] [error]: Global error has happened, ReferenceError: Extra is not defined
+    at getWorkMainKeyboard (file:///C:/Users/alexey/projects/proggame/src/scenes/work/helpers.js:7:3)
+    at file:///C:/Users/alexey/projects/proggame/src/scenes/work/index.js:23:40
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:160:31
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:460:20
+    at SceneContextScene.enter (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-13T12:22:53.233Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:22:53.353Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:22:53.355Z] [error]: Global error has happened, ReferenceError: Extra is not defined
+    at getWorkMainKeyboard (file:///C:/Users/alexey/projects/proggame/src/scenes/work/helpers.js:7:3)
+    at file:///C:/Users/alexey/projects/proggame/src/scenes/work/index.js:23:40
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:160:31
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:460:20
+    at SceneContextScene.enter (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-13T12:22:55.033Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:22:55.118Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:22:55.120Z] [error]: Global error has happened, ReferenceError: Extra is not defined
+    at getWorkMainKeyboard (file:///C:/Users/alexey/projects/proggame/src/scenes/work/helpers.js:7:3)
+    at file:///C:/Users/alexey/projects/proggame/src/scenes/work/index.js:23:40
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:160:31
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:460:20
+    at SceneContextScene.enter (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-13T12:22:57.074Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:22:57.161Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:22:57.165Z] [error]: Global error has happened, ReferenceError: Extra is not defined
+    at getWorkMainKeyboard (file:///C:/Users/alexey/projects/proggame/src/scenes/work/helpers.js:7:3)
+    at file:///C:/Users/alexey/projects/proggame/src/scenes/work/index.js:23:40
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:160:31
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:460:20
+    at SceneContextScene.enter (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-13T12:26:44.576Z] [debug]Logging initialized at debug level
+[2022-11-13T12:26:44.666Z] [debug]Logging initialized at debug level
+[2022-11-13T12:27:02.654Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:28:42.697Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:31:01.524Z] [debug]Logging initialized at debug level
+[2022-11-13T12:31:01.594Z] [debug]Logging initialized at debug level
+[2022-11-13T12:31:17.484Z] [debug]Logging initialized at debug level
+[2022-11-13T12:31:17.604Z] [debug]Logging initialized at debug level
+[2022-11-13T12:31:29.291Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:31:44.946Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:38:21.121Z] [debug]Logging initialized at debug level
+[2022-11-13T12:38:21.121Z] [debug]Logging initialized at debug level
+[2022-11-13T12:38:58.709Z] [debug]Logging initialized at debug level
+[2022-11-13T12:39:18.648Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:40:34.654Z] [debug]Logging initialized at debug level
+[2022-11-13T12:40:34.880Z] [debug]Logging initialized at debug level
+[2022-11-13T12:40:49.272Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:41:10.232Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:41:15.090Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:41:22.652Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:42:45.101Z] [debug]Logging initialized at debug level
+[2022-11-13T12:42:45.241Z] [debug]Logging initialized at debug level
+[2022-11-13T12:42:54.596Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:42:59.313Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:43:06.834Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:43:09.078Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:44:14.674Z] [debug]Logging initialized at debug level
+[2022-11-13T12:44:14.724Z] [debug]Logging initialized at debug level
+[2022-11-13T12:44:16.290Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:47:38.566Z] [debug]Logging initialized at debug level
+[2022-11-13T12:47:38.584Z] [debug]Logging initialized at debug level
+[2022-11-13T12:47:48.375Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:47:51.532Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:48:10.757Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:48:21.088Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:49:08.110Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T12:49:10.731Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T12:52:51.698Z] [debug]Logging initialized at debug level
+[2022-11-13T12:52:51.798Z] [debug]Logging initialized at debug level
+[2022-11-13T12:55:43.103Z] [debug]Logging initialized at debug level
+[2022-11-13T12:55:43.187Z] [debug]Logging initialized at debug level
+[2022-11-13T12:56:27.473Z] [debug]Logging initialized at debug level
+[2022-11-13T12:56:27.553Z] [debug]Logging initialized at debug level
+[2022-11-13T12:57:40.569Z] [debug]Logging initialized at debug level
+[2022-11-13T12:57:40.678Z] [debug]Logging initialized at debug level
+[2022-11-13T12:58:21.916Z] [debug]Logging initialized at debug level
+[2022-11-13T12:58:22.013Z] [debug]Logging initialized at debug level
+[2022-11-13T12:59:32.080Z] [debug]Logging initialized at debug level
+[2022-11-13T12:59:32.273Z] [debug]Logging initialized at debug level
+[2022-11-13T12:59:40.127Z] [debug]Logging initialized at debug level
+[2022-11-13T12:59:40.226Z] [debug]Logging initialized at debug level
+[2022-11-13T13:00:21.855Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T13:00:25.741Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T13:00:34.875Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:00:41.673Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T13:02:35.116Z] [debug]Logging initialized at debug level
+[2022-11-13T13:02:35.116Z] [debug]Logging initialized at debug level
+[2022-11-13T13:03:21.854Z] [debug]Logging initialized at debug level
+[2022-11-13T13:03:21.867Z] [debug]Logging initialized at debug level
+[2022-11-13T13:03:40.720Z] [debug]Logging initialized at debug level
+[2022-11-13T13:03:40.721Z] [debug]Logging initialized at debug level
+[2022-11-13T13:04:02.659Z] [debug]Logging initialized at debug level
+[2022-11-13T13:04:10.240Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:04:13.492Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T13:04:16.811Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:04:23.776Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T13:04:26.530Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:04:31.168Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T13:04:31.346Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T13:04:41.658Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T13:05:06.310Z] [debug]Logging initialized at debug level
+[2022-11-13T13:05:06.445Z] [debug]Logging initialized at debug level
+[2022-11-13T13:05:12.626Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T13:05:15.723Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T13:05:15.805Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:05:20.497Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T13:05:24.497Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T13:05:26.826Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T13:05:28.474Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:05:35.973Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T13:06:10.015Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:06:15.272Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T13:06:39.909Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T13:06:41.989Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T13:06:43.528Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:06:45.060Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T13:06:49.546Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:06:50.694Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T13:06:53.241Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:06:55.333Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T13:06:59.436Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T13:07:02.048Z] [debug][312014537/fialkovod]: Leaves about scene
