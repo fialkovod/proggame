@@ -476,3 +476,161 @@
 [2022-11-13T18:05:35.614Z] [debug][312014537/fialkovod]: Leaves about scene
 [2022-11-13T18:05:41.656Z] [debug][312014537/fialkovod]: Enters work scene
 [2022-11-13T18:06:05.842Z] [debug]Logging initialized at debug level
+[2022-11-13T19:28:09.960Z] [debug]Logging initialized at debug level
+[2022-11-13T19:28:52.177Z] [debug]Logging initialized at debug level
+[2022-11-13T19:29:02.627Z] [debug]Logging initialized at debug level
+[2022-11-13T19:29:34.770Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:33:18.083Z] [debug]Logging initialized at debug level
+[2022-11-13T19:33:18.193Z] [debug]Logging initialized at debug level
+[2022-11-13T19:40:37.886Z] [debug]Logging initialized at debug level
+[2022-11-13T19:40:37.886Z] [debug]Logging initialized at debug level
+[2022-11-13T19:40:52.740Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:41:40.457Z] [debug]Logging initialized at debug level
+[2022-11-13T19:41:40.533Z] [debug]Logging initialized at debug level
+[2022-11-13T19:41:57.477Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:42:32.568Z] [debug]Logging initialized at debug level
+[2022-11-13T19:42:32.668Z] [debug]Logging initialized at debug level
+[2022-11-13T19:42:38.297Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:42:43.884Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T19:42:46.684Z] [debug][312014537/fialkovod]: Enters shop scene
+[2022-11-13T19:42:48.612Z] [debug][312014537/fialkovod]: Leaves shop scene
+[2022-11-13T19:42:52.214Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:46:34.010Z] [debug]Logging initialized at debug level
+[2022-11-13T19:46:34.188Z] [debug]Logging initialized at debug level
+[2022-11-13T19:47:48.752Z] [debug]Logging initialized at debug level
+[2022-11-13T19:47:48.855Z] [debug]Logging initialized at debug level
+[2022-11-13T19:47:59.753Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:48:29.505Z] [debug]Logging initialized at debug level
+[2022-11-13T19:48:29.724Z] [debug]Logging initialized at debug level
+[2022-11-13T19:48:50.335Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:48:58.535Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T19:49:00.346Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:49:40.129Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T19:49:48.203Z] [debug][312014537/fialkovod]: Enters shop scene
+[2022-11-13T19:49:52.454Z] [debug][312014537/fialkovod]: Leaves shop scene
+[2022-11-13T19:50:09.388Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:50:58.569Z] [debug]Logging initialized at debug level
+[2022-11-13T19:50:58.656Z] [debug]Logging initialized at debug level
+[2022-11-13T19:51:34.131Z] [debug]Logging initialized at debug level
+[2022-11-13T19:51:34.328Z] [debug]Logging initialized at debug level
+[2022-11-13T19:51:44.314Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:51:45.859Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T19:51:51.364Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:51:55.003Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T19:52:02.377Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T19:52:06.317Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T19:52:10.374Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T19:52:14.555Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T19:54:34.602Z] [debug]Logging initialized at debug level
+[2022-11-13T19:54:34.724Z] [debug]Logging initialized at debug level
+[2022-11-13T19:55:39.017Z] [debug]Logging initialized at debug level
+[2022-11-13T19:55:39.116Z] [debug]Logging initialized at debug level
+[2022-11-13T19:58:32.558Z] [debug]Logging initialized at debug level
+[2022-11-13T19:58:32.660Z] [debug]Logging initialized at debug level
+[2022-11-13T20:00:41.292Z] [debug]Logging initialized at debug level
+[2022-11-13T20:00:41.306Z] [debug]Logging initialized at debug level
+[2022-11-13T20:03:32.671Z] [debug]Logging initialized at debug level
+[2022-11-13T20:03:32.688Z] [debug]Logging initialized at debug level
+[2022-11-13T20:03:45.257Z] [debug]Logging initialized at debug level
+[2022-11-13T20:03:55.753Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:03:55.759Z] [error]: Global error has happened, TypeError: aboutMainKeyboard is not a function
+    at file:///C:/Users/alexey/projects/proggame/src/scenes/about/index.js:16:85
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:160:31
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:460:20
+    at SceneContextScene.enter (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+[2022-11-13T20:03:59.022Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T20:03:59.206Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:03:59.207Z] [error]: Global error has happened, TypeError: aboutMainKeyboard is not a function
+    at file:///C:/Users/alexey/projects/proggame/src/scenes/about/index.js:16:85
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:160:31
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:460:20
+    at SceneContextScene.enter (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+[2022-11-13T20:04:01.207Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T20:04:01.304Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T20:04:03.099Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T20:04:05.359Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:04:05.361Z] [error]: Global error has happened, TypeError: aboutMainKeyboard is not a function
+    at file:///C:/Users/alexey/projects/proggame/src/scenes/about/index.js:16:85
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:27
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:160:31
+    at execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:23)
+    at C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:460:20
+    at SceneContextScene.enter (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\scenes\context.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-13T20:04:37.668Z] [debug]Logging initialized at debug level
+[2022-11-13T20:04:37.810Z] [debug]Logging initialized at debug level
+[2022-11-13T20:04:45.565Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:04:52.655Z] [debug][312014537/fialkovod]: Checking account summary
+[2022-11-13T20:04:59.702Z] [debug][312014537/fialkovod]: Checking account summary
+[2022-11-13T20:04:59.711Z] [error]: Global error has happened, TypeError: Telegraf: "editMessageText" isn't available for "message"
+    at Context.assert (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\context.js:128:19)
+    at Context.editMessageText (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\context.js:171:14)
+    at accountSummaryAction (file:///C:/Users/alexey/projects/proggame/src/scenes/about/actions.js:12:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+[2022-11-13T20:05:02.251Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T20:05:04.920Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:07:20.079Z] [debug]Logging initialized at debug level
+[2022-11-13T20:07:20.200Z] [debug]Logging initialized at debug level
+[2022-11-13T20:07:37.198Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:07:43.866Z] [debug][312014537/fialkovod]: Checking account summary
+[2022-11-13T20:10:17.111Z] [debug]Logging initialized at debug level
+[2022-11-13T20:10:17.283Z] [debug]Logging initialized at debug level
+[2022-11-13T20:10:27.345Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:10:33.720Z] [debug][312014537/fialkovod]: Checking account summary
+[2022-11-13T20:10:42.521Z] [debug][312014537/fialkovod]: Checking account summary
+[2022-11-13T20:10:42.613Z] [error]: Global error has happened, TypeError: Telegraf: "answerCbQuery" isn't available for "message"
+    at Context.assert (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\context.js:128:19)
+    at Context.answerCbQuery (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\context.js:142:14)
+    at accountSummaryAction (file:///C:/Users/alexey/projects/proggame/src/scenes/about/actions.js:20:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+[2022-11-13T20:12:25.165Z] [debug]Logging initialized at debug level
+[2022-11-13T20:12:25.278Z] [debug]Logging initialized at debug level
+[2022-11-13T20:12:31.969Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:12:33.732Z] [debug][312014537/fialkovod]: Checking account summary
+[2022-11-13T20:12:57.934Z] [debug]Logging initialized at debug level
+[2022-11-13T20:12:58.165Z] [debug]Logging initialized at debug level
+[2022-11-13T20:13:11.595Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:13:13.909Z] [debug][312014537/fialkovod]: Checking account summary
+[2022-11-13T20:13:34.141Z] [debug][312014537/fialkovod]: Checking account summary
+[2022-11-13T20:13:37.266Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T20:13:40.838Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:13:44.676Z] [debug][312014537/fialkovod]: Checking account summary
+[2022-11-13T20:13:44.764Z] [error]: Global error has happened, TypeError: Telegraf: "answerCbQuery" isn't available for "message"
+    at Context.assert (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\context.js:128:19)
+    at Context.answerCbQuery (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\context.js:142:14)
+    at accountSummaryAction (file:///C:/Users/alexey/projects/proggame/src/scenes/about/actions.js:16:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexey\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+[2022-11-13T20:13:46.489Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T20:13:49.642Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T20:14:02.153Z] [debug][312014537/fialkovod]: Leaves about scene

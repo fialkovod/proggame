@@ -27,3 +27,8 @@ export const closeAccountSummaryAction = async (ctx) => {
   await ctx.editMessageText("Чего менять", getMainKeyboard(ctx));
   await ctx.answerCbQuery();
 };
+
+
+export const sendQuizAction = async (ctx) => {
+    await ctx.reply('Тут отправляем квиз')
+}
