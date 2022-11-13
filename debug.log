@@ -346,3 +346,133 @@
 [2022-11-13T13:06:55.333Z] [debug][312014537/fialkovod]: Leaves about scene
 [2022-11-13T13:06:59.436Z] [debug][312014537/fialkovod]: Enters about scene
 [2022-11-13T13:07:02.048Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:31:26.912Z] [debug]Logging initialized at debug level
+[2022-11-13T17:32:17.765Z] [debug]Logging initialized at debug level
+[2022-11-13T17:32:42.366Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T17:32:49.403Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T17:34:25.161Z] [debug]Logging initialized at debug level
+[2022-11-13T17:35:45.946Z] [debug]Logging initialized at debug level
+[2022-11-13T17:35:58.026Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:36:07.130Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:36:13.948Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:36:19.607Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:36:38.200Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:36:45.401Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:36:48.469Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:36:59.674Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:37:06.013Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:37:09.353Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:37:12.103Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:37:16.646Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:37:22.989Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T17:37:25.553Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T17:38:38.197Z] [debug]Logging initialized at debug level
+[2022-11-13T17:38:59.063Z] [debug]Logging initialized at debug level
+[2022-11-13T17:41:34.260Z] [debug]Logging initialized at debug level
+[2022-11-13T17:42:10.092Z] [debug]Logging initialized at debug level
+[2022-11-13T17:42:36.540Z] [debug]Logging initialized at debug level
+[2022-11-13T17:44:06.149Z] [debug]Logging initialized at debug level
+[2022-11-13T17:44:13.368Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:44:15.117Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:44:18.090Z] [error]: Global error has happened, Error: Can't find scene: shop
+    at SceneContextScene.enter (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\scenes\context.js:57:19)
+    at file:///C:/Users/alexe/projects/proggame/src/bot.js:58:52
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:335:28
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:166:111
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-13T17:44:22.052Z] [error]: Global error has happened, Error: Can't find scene: shop
+    at SceneContextScene.enter (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\scenes\context.js:57:19)
+    at file:///C:/Users/alexe/projects/proggame/src/bot.js:58:52
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:335:28
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:166:111
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-13T17:44:47.231Z] [debug]Logging initialized at debug level
+[2022-11-13T17:46:40.167Z] [debug]Logging initialized at debug level
+[2022-11-13T17:47:04.217Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T17:47:08.635Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T17:47:11.032Z] [error]: Global error has happened, Error: Can't find scene: shop
+    at SceneContextScene.enter (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\scenes\context.js:57:19)
+    at file:///C:/Users/alexe/projects/proggame/src/bot.js:58:52
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:335:28
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:166:111
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-13T17:47:16.713Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:47:20.535Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:47:24.674Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:47:27.053Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:47:28.798Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T17:47:31.709Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T17:47:34.403Z] [error]: Global error has happened, Error: Can't find scene: shop
+    at SceneContextScene.enter (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\scenes\context.js:57:19)
+    at file:///C:/Users/alexe/projects/proggame/src/bot.js:58:52
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:335:28
+    at C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:166:111
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+    at async C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:472:21
+    at async execute (C:\Users\alexe\projects\proggame\node_modules\telegraf\lib\composer.js:471:17)
+[2022-11-13T17:51:16.613Z] [debug]Logging initialized at debug level
+[2022-11-13T17:51:26.696Z] [debug][312014537/fialkovod]: Enters shop scene
+[2022-11-13T17:51:37.488Z] [debug][312014537/fialkovod]: Leaves shop scene
+[2022-11-13T17:51:45.561Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T17:51:49.676Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T17:51:55.300Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:51:57.239Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:51:58.364Z] [debug][312014537/fialkovod]: Enters shop scene
+[2022-11-13T17:52:08.344Z] [debug][312014537/fialkovod]: Leaves shop scene
+[2022-11-13T17:52:25.450Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:52:28.848Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:52:38.976Z] [debug][312014537/fialkovod]: Enters shop scene
+[2022-11-13T17:52:44.057Z] [debug][312014537/fialkovod]: Leaves shop scene
+[2022-11-13T17:52:44.223Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:53:01.256Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:53:05.687Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T17:53:08.309Z] [debug][312014537/fialkovod]: Leaves work scene
+[2022-11-13T17:55:05.444Z] [debug]Logging initialized at debug level
+[2022-11-13T17:55:13.672Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:55:16.689Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:55:27.958Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:55:35.740Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:55:42.266Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:55:45.198Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:57:26.456Z] [debug]Logging initialized at debug level
+[2022-11-13T17:57:44.356Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:57:46.109Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T17:58:22.927Z] [debug]Logging initialized at debug level
+[2022-11-13T17:58:32.224Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T17:58:35.361Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T18:01:04.206Z] [debug]Logging initialized at debug level
+[2022-11-13T18:01:38.885Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T18:01:45.614Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T18:02:05.489Z] [debug]Logging initialized at debug level
+[2022-11-13T18:02:13.424Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T18:02:17.326Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T18:02:56.562Z] [debug]Logging initialized at debug level
+[2022-11-13T18:03:03.821Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T18:03:07.377Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T18:04:44.545Z] [debug]Logging initialized at debug level
+[2022-11-13T18:05:01.277Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T18:05:06.030Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T18:05:16.385Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T18:05:21.030Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T18:05:30.261Z] [debug][312014537/fialkovod]: Enters about scene
+[2022-11-13T18:05:35.614Z] [debug][312014537/fialkovod]: Leaves about scene
+[2022-11-13T18:05:41.656Z] [debug][312014537/fialkovod]: Enters work scene
+[2022-11-13T18:06:05.842Z] [debug]Logging initialized at debug level

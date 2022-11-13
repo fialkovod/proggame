@@ -29,13 +29,16 @@ start.enter(async (ctx) => {
   
       await newUser.save();
       logger.debug(ctx, newUser);
+      
       //await ctx.reply('Choose language / Выбери язык', getLanguageKeyboard());
     }
+    await ctx.scene.leave();
 });
   
 start.leave(async (ctx) => {
     const { mainKeyboard } = getMainKeyboard(ctx);  
     await ctx.reply('выход из сцены старт', mainKeyboard);
+    await ctx.scene.leave();
 });
 
 start.command("back", leave());

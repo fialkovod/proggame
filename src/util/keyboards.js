@@ -24,11 +24,12 @@ export const getMainKeyboard = (ctx) => {
   //const mainKeyboardSearchMovies = ctx.i18n.t('keyboards.main_keyboard.search');
   //const mainKeyboardMyCollection = ctx.i18n.t('keyboards.main_keyboard.movies');
   //const mainKeyboardSettings = ctx.i18n.t('keyboards.main_keyboard.settings');
-  const mainKeyboardWork = 'Работать';
+  const mainKeyboardWork = 'Работа';
+  const mainKeyboardShop = 'Магазин';
   const mainKeyboardSupport = 'Поддержка';
   const mainKeyboardAbout = 'О боте';
   let mainKeyboard = Markup.keyboard([
-    [mainKeyboardWork],
+    [mainKeyboardWork, mainKeyboardShop],
     [mainKeyboardSupport, mainKeyboardAbout]
   ]);
   mainKeyboard = mainKeyboard.resize();
@@ -36,6 +37,7 @@ export const getMainKeyboard = (ctx) => {
   return {
     mainKeyboard,
     mainKeyboardWork,
+    mainKeyboardShop,
     mainKeyboardSupport,
     mainKeyboardAbout
   };

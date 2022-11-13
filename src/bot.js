@@ -1,4 +1,4 @@
-import { Telegraf, Markup,  Scenes, session } from 'telegraf';
+import { Telegraf, Markup,  Scenes, session,} from 'telegraf';
 //import Stage from 'telegraf/stage';
 //import session from 'telegraf/session';
 import mongoose from 'mongoose';
@@ -6,6 +6,7 @@ import logger from './util/logger.js';
 import { getUserInfo } from './middlewares/user-info.js';
 import startScene from './scenes/start/index.js';
 import workScene from './scenes/work/index.js';
+import shopScene from './scenes/shop/index.js';
 import aboutScene from './scenes/about/index.js';
 import dotenv from "dotenv"
 import { getMainKeyboard, getBackKeyboard } from './util/keyboards.js';
@@ -34,12 +35,8 @@ mongoose.connection.on('open', () => {
     const stage = new Scenes.Stage([
         startScene,
         workScene,
+        shopScene,
         aboutScene,
-        /*searchScene,
-        moviesScene,
-        settingsScene,
-        contactScene,
-        adminScene*/
     ]);
 
     bot.use(session());
@@ -47,13 +44,20 @@ mongoose.connection.on('open', () => {
 
     bot.use(stage.middleware()); 
     bot.use(getUserInfo);
+
+    bot.telegram.setMyCommands([
+      { command: '/start', description: 'Запустить бота' },
+      { command: '/about', description: 'О боте' }
+  ])
     
     bot.command('/start',(ctx) => ctx.scene.enter('start'));
     bot.command('/work',(ctx) => ctx.scene.enter('work'));
+    bot.command('/shop',(ctx) => ctx.scene.enter('shop'));
     bot.command('/about',(ctx) => ctx.scene.enter('about'));
-    const { mainKeyboard, mainKeyboardWork, mainKeyboardSupport, mainKeyboardAbout } = getMainKeyboard();
+    const { mainKeyboard, mainKeyboardWork, mainKeyboardShop, mainKeyboardAbout } = getMainKeyboard();
 
     bot.hears(mainKeyboardWork, (ctx) => ctx.scene.enter('work'));
+    bot.hears(mainKeyboardShop, (ctx) => ctx.scene.enter('shop'));
     bot.hears(mainKeyboardAbout, (ctx) => ctx.scene.enter('about'));
     
     bot.catch((error) => {
