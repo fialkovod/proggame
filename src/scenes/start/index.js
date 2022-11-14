@@ -9,7 +9,10 @@ const { enter, leave } = Scenes.Stage;
 const start = new Scenes.BaseScene('start');
 
 start.enter(async (ctx) => {
+    //console.log("context on start", ctx);
     const uid = String(ctx.from.id);
+    //console.log("ctx.from: ", ctx.from);
+    //console.log("uid: ", uid);
     const user = await User.findById(uid);
     const { mainKeyboard, mainKeyboardWork } = getMainKeyboard(ctx);
   

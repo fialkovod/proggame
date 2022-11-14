@@ -8,8 +8,13 @@ import User from '../models/User.js';
  * @param next - next function
  */
 export const getUserInfo = async (ctx, next) => {
-    const user = await User.findById(ctx.from.id);
-  if (!ctx.session?.language) {
+    //console.log("ctx: ", ctx);
+    const user_id = ctx?.from?.id || ctx?.update?.poll_answer?.user?.id;
+
+    const user = user_id? await User.findById(user_id): undefined;
+    if(user) ctx.user = user;
+
+  /*if (!ctx.session?.language) {
     const user = await User.findById(ctx.from.id);
     //console.log("ctx: ", ctx);
     //console.log("ctx.session: ", ctx.session);
@@ -18,7 +23,7 @@ export const getUserInfo = async (ctx, next) => {
       //ctx.session.language = user.language;
       //ctx.i18n.locale(user.language);
     }
-  }
+  }*/
 
-  return next();
+    return next();
 };

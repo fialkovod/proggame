@@ -7,28 +7,17 @@ import User from '../../models/User.js';
 import { getBackKeyboard } from '../../util/keyboards.js';
 
 
-export const accountSummaryAction = async (ctx) => {
-  logger.debug(ctx, 'Checking account summary');
-  const user = await User.findById(ctx.from.id);
-
-  await ctx.editMessageText(
-    "про аккаунт", {
-      username: user.username,
-      id: user._id,
-      totalMovies: user.totalMovies,
-      version: process.env.npm_package_version
-    },
-    getAccountSummaryKeyboard(ctx)
-  );
-  await ctx.answerCbQuery();
-};
-
-export const closeAccountSummaryAction = async (ctx) => {
-  await ctx.editMessageText("Чего менять", getMainKeyboard(ctx));
-  await ctx.answerCbQuery();
-};
-
-
 export const sendQuizAction = async (ctx) => {
-    await ctx.reply('Тут отправляем квиз')
+    let ret = await ctx.sendQuiz('Тут отправляем poll', ['123', '456'], {correct_option_id: 0, open_period:5, is_anonymous: false});
+    // console.log(ret);
+}
+
+
+export const analizeQuizAction = async (ctx) => {
+    /*console.log(ctx);
+    console.log(ctx.update.poll_answer);
+    console.log(ctx.update.poll_answer.user);
+    console.log(ctx.update.poll_answer.option_ids);*/
+    let user_id = ctx.user?._id
+    await ctx.telegram.sendMessage(user_id, 'Тут надо оценить результат квиза');
 }

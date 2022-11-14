@@ -33,7 +33,9 @@ work.action(/sendquiz/, sendQuizAction);
 work.action(/Главное меню/, leave());
 //work.action(/closeAccountSummary/, closeAccountSummaryAction);
 
-
+/*work.on("poll_answer", ctx => console.log(ctx))
+work.on("poll", ctx => console.log("poll: ", ctx))
+*/
 
 
 export default work;

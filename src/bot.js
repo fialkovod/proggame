@@ -10,6 +10,7 @@ import shopScene from './scenes/shop/index.js';
 import aboutScene from './scenes/about/index.js';
 import dotenv from "dotenv"
 import { getMainKeyboard, getBackKeyboard } from './util/keyboards.js';
+import {analizeQuizAction} from './scenes/work/actions.js'
 //import { session } from 'telegraf';
 //const dotenv = require("dotenv")
 const envFile = process.env.NODE_ENV === 'dev'? 'dev.env':'prod.env'
@@ -59,10 +60,20 @@ mongoose.connection.on('open', () => {
     bot.hears(mainKeyboardWork, (ctx) => ctx.scene.enter('work'));
     bot.hears(mainKeyboardShop, (ctx) => ctx.scene.enter('shop'));
     bot.hears(mainKeyboardAbout, (ctx) => ctx.scene.enter('about'));
+
+    bot.hears(/()/, (ctx) => ctx.scene.enter('start'));
     
+    bot.on("poll", ctx => analizeQuizAction(ctx))
+    bot.on("poll_answer", ctx => analizeQuizAction(ctx))
+
     bot.catch((error) => {
         logger.error(undefined, 'Global error has happened, %O', error);
     });
 
     bot.startPolling();
 })
+
+
+// Enable graceful stop
+process.once('SIGINT', () => bot.stop('SIGINT'))
+process.once('SIGTERM', () => bot.stop('SIGTERM'))
