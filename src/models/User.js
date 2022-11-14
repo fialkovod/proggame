@@ -19,6 +19,8 @@ export const UserSchema = new mongoose.Schema(
     name: String,
     lastActivity: Number,
     language: String,
+    correctAnswers: { type: Number, required: true, default: 0 },
+    wrongAnswers: { type: Number, required: true, default: 0 },
   },
   { _id: false }
 );
