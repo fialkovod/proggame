@@ -40,8 +40,27 @@ mongoose.connection.on('open', () => {
         aboutScene,
     ]);
 
-    bot.use(session());
+    //bot.use(session());
 
+    bot.use(
+      session({
+        getSessionKey: ({ pollAnswer, from }) => {
+          // for public quizzes
+          if (pollAnswer?.user.id) {
+            const { id } = pollAnswer.user;
+            return `${id}:${id}`;
+          }
+  
+          // fallback
+          // ⚠️ Be careful, these values ​​may not be available.
+          if (from.id == null) {
+            return undefined
+          }
+
+          return `${from.id}:${from.id}`;
+        },
+      }),
+    );
 
     bot.use(stage.middleware()); 
     bot.use(getUserInfo);
