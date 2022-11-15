@@ -43,9 +43,7 @@ mongoose.connection.on('open', () => {
         aboutScene,
     ]);
 
-    startAgents();
-
-    //bot.use(session());
+    //startAgents();
 
     bot.use(
       session({
