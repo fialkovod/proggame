@@ -43,7 +43,7 @@ mongoose.connection.on('open', () => {
         aboutScene,
     ]);
 
-    //startAgents();
+    startAgents();
 
     bot.use(
       session({
@@ -71,7 +71,7 @@ mongoose.connection.on('open', () => {
     bot.telegram.setMyCommands([
       { command: '/start', description: 'Запустить бота' },
       { command: '/about', description: 'О боте' }
-  ])
+    ])
     
     bot.command('/start',(ctx) => ctx.scene.enter('start'));
     bot.command('/work',(ctx) => ctx.scene.enter('work'));
