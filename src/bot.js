@@ -10,11 +10,14 @@ import shopScene from './scenes/shop/index.js';
 import aboutScene from './scenes/about/index.js';
 import dotenv from "dotenv"
 import { getMainKeyboard, getBackKeyboard } from './util/keyboards.js';
-import {analizeQuizAction} from './scenes/work/actions.js'
+import {analizeQuizAction} from './scenes/work/actions.js';
+import { startAgents } from './util/agents.js';
 //import { session } from 'telegraf';
 //const dotenv = require("dotenv")
 const envFile = process.env.NODE_ENV === 'dev'? 'dev.env':'prod.env'
 dotenv.config({ path: envFile })
+
+
 
 //const telegram = new Telegram(process.env.TELEGRAM_TOKEN, {});
 
@@ -39,6 +42,8 @@ mongoose.connection.on('open', () => {
         shopScene,
         aboutScene,
     ]);
+
+    startAgents();
 
     //bot.use(session());
 

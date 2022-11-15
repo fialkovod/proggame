@@ -21,6 +21,9 @@ export const UserSchema = new mongoose.Schema(
     language: String,
     correctAnswers: { type: Number, required: true, default: 0 },
     wrongAnswers: { type: Number, required: true, default: 0 },
+    currentPower: { type: Number, required: true, default: 8 },
+    maxPower: { type: Number, required: true, default: 8 },
+    speedPower: { type: Number, required: true, default: 1 },
   },
   { _id: false }
 );

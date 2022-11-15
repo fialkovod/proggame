@@ -10,7 +10,6 @@ import User from '../models/User.js';
 export const getUserInfo = async (ctx, next) => {
     //console.log("ctx: ", ctx);
     const user_id = ctx?.from?.id || ctx?.update?.poll_answer?.user?.id;
-
     const user = user_id? await User.findById(user_id): undefined;
     if(user) ctx.user = user;
 

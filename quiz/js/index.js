@@ -1,5 +1,4 @@
-module.exports = {
-    quizes: [
+export const quizes = [
         {
             id: 1,
             pic: '',
@@ -10,7 +9,7 @@ module.exports = {
             correct_option_id: 1,
             explanation: 'Нет, не от Java',
             startdif: 1,
-            open_period: 1
+            open_period: 5
         },
         {
             id: 2,
@@ -22,7 +21,6 @@ module.exports = {
             correct_option_id: 1,
             explanation: 'Да, типизированный',
             startdif: 1,
-            open_period: 1
+            open_period: 5
         }, 
     ]  
-}

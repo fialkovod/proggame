@@ -5,13 +5,19 @@ import {
 import logger from '../../util/logger.js';
 import { timeout } from '../../util/common.js';
 import User from '../../models/User.js';
-import { getBackKeyboard } from '../../util/keyboards.js';
 
+import {quizes} from "../../../quiz/js/index.js";
+
+export const getNextQuizAction = async (ctx) => {
+    let q = Math.floor(Math.random()*quizes.length) + 1;
+    return quizes.find(qw=>qw.id==q);
+}
 
 export const sendQuizAction = async (ctx) => {
     if (!ctx.session.currentQuiz) {
-        let open_period = 5;
-        let ret = await ctx.sendQuiz('Тут отправляем poll', ['123', '456'], {correct_option_id: 0, open_period:open_period, is_anonymous: false});
+        const quiz = await getNextQuizAction(ctx);
+        let open_period = quiz.open_period;
+        let ret = await ctx.sendQuiz(quiz.question, quiz.options, {correct_option_id: quiz.correct_option_id, open_period:open_period, is_anonymous: false});
         ret.quizTO = timeout(ctx, QuizTimeOutAction, open_period*1000);
         ctx.session.currentQuiz = ret;
     } else {
