@@ -5,12 +5,15 @@ const increasePowerAgent = (ctx) => {
     setInterval(ctx => {
         console.log("run inc power agent");
         User.updateMany(
-            {currentPower: {$lte: "$maxPower"}}, 
-            [{ $set: {currentPower: {$sum:["$currentPower","$speedPower"]}}}]   //+"$currentPower"+(+"$speedPower")
+            { $expr: { $lt: [ "$currentPower" , "$maxPower" ] } }, 
+            [{ $set: {currentPower:
+                {$cond: { if: { $gte: [ {$sum:["$currentPower","$speedPower"]}, "$maxPower" ] }, then: "$maxPower", else: {$sum:["$currentPower","$speedPower"]} }} 
+            }}] ,
+            {new: true}
             )
             .then(doc=>console.log(doc))
             .catch(err=>logger.debug(ctx, err))
-    }, 1000);
+    }, 60*60*1000);   // once per hour
 }
 
 export const startAgents = (ctx) => {
