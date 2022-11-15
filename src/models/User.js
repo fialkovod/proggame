@@ -1,4 +1,4 @@
-import mongoose, { Document } from 'mongoose';
+import mongoose, { Document } from "mongoose";
 
 /*export interface IUser extends Document {
   _id: string;
@@ -34,5 +34,5 @@ export const UserSchema = new mongoose.Schema(
   this.populate('observableMovies');
 });*/
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model("User", UserSchema);
 export default User;

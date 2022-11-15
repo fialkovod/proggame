@@ -1,18 +1,18 @@
-import { Markup } from 'telegraf';
+import { Markup } from "telegraf";
 
 /**
  * Returns back keyboard and its buttons according to the language
  * @param ctx - telegram context
  */
 export const getBackKeyboard = (ctx) => {
-  const backKeyboardBack = 'Главное меню';
+  const backKeyboardBack = "Главное меню";
   let backKeyboard = Markup.keyboard([backKeyboardBack]);
 
   backKeyboard = backKeyboard.resize();
 
   return {
     backKeyboard,
-    backKeyboardBack
+    backKeyboardBack,
   };
 };
 
@@ -24,13 +24,13 @@ export const getMainKeyboard = (ctx) => {
   //const mainKeyboardSearchMovies = ctx.i18n.t('keyboards.main_keyboard.search');
   //const mainKeyboardMyCollection = ctx.i18n.t('keyboards.main_keyboard.movies');
   //const mainKeyboardSettings = ctx.i18n.t('keyboards.main_keyboard.settings');
-  const mainKeyboardWork = 'Работа';
-  const mainKeyboardShop = 'Магазин';
-  const mainKeyboardSupport = 'Поддержка';
-  const mainKeyboardAbout = 'О боте';
+  const mainKeyboardWork = "Работа";
+  const mainKeyboardShop = "Магазин";
+  const mainKeyboardSupport = "Поддержка";
+  const mainKeyboardAbout = "О боте";
   let mainKeyboard = Markup.keyboard([
     [mainKeyboardWork, mainKeyboardShop],
-    [mainKeyboardSupport, mainKeyboardAbout]
+    [mainKeyboardSupport, mainKeyboardAbout],
   ]);
   mainKeyboard = mainKeyboard.resize();
 
@@ -39,6 +39,6 @@ export const getMainKeyboard = (ctx) => {
     mainKeyboardWork,
     mainKeyboardShop,
     mainKeyboardSupport,
-    mainKeyboardAbout
+    mainKeyboardAbout,
   };
 };

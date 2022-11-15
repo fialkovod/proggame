@@ -1,12 +1,10 @@
-import { Markup} from 'telegraf';
+import { Markup } from "telegraf";
 
 /**
  * Returns main settings keyboard
  */
 export function getShopInlineKeyboard(ctx) {
-    return Markup.inlineKeyboard([
-        Markup.button.callback("Назад4", "/back"),
-    ])
+  return Markup.inlineKeyboard([Markup.button.callback("Назад4", "/back")]);
 }
 
 /**
