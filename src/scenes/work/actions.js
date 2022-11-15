@@ -15,11 +15,27 @@ export const getNextQuizAction = async (ctx) => {
 
 export const sendQuizAction = async (ctx) => {
     if (!ctx.session.currentQuiz) {
-        const quiz = await getNextQuizAction(ctx);
-        let open_period = quiz.open_period;
-        let ret = await ctx.sendQuiz(quiz.question, quiz.options, {correct_option_id: quiz.correct_option_id, open_period:open_period, is_anonymous: false});
-        ret.quizTO = timeout(ctx, QuizTimeOutAction, open_period*1000);
-        ctx.session.currentQuiz = ret;
+        if (ctx?.user?.currentPower>0) {
+            const quiz = await getNextQuizAction(ctx);
+            console.log("user: ", ctx.user);
+            //console.log("ctx: ", ctx);
+            let user_id = ctx?.user?._id
+            User.findOneAndUpdate(
+                { _id: user_id },
+                { $inc: {currentPower:-1} }, 
+                {new: true})
+              //.then(doc=>console.log(doc))
+              .catch(err=>logger.debug(ctx, err))
+    
+    
+            let open_period = quiz.open_period;
+            let ret = await ctx.sendQuiz(quiz.question, quiz.options, {correct_option_id: quiz.correct_option_id, open_period:open_period, is_anonymous: false});
+            ret.quizTO = timeout(ctx, QuizTimeOutAction, open_period*1000);
+            ctx.session.currentQuiz = ret;
+        } else {
+            await ctx.reply('Энергия закончилась!');
+        }
+
     } else {
         await ctx.reply('Есть задача!');
     }

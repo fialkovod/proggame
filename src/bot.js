@@ -64,9 +64,9 @@ mongoose.connection.on('open', () => {
         },
       }),
     );
-
-    bot.use(stage.middleware()); 
     bot.use(getUserInfo);
+    bot.use(stage.middleware()); 
+    
 
     bot.telegram.setMyCommands([
       { command: '/start', description: 'Запустить бота' },

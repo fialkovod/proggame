@@ -18,7 +18,7 @@ export const quizes = [
             options: [
                 'Да','Нет','Не знаю','Давайте дальше',
             ],
-            correct_option_id: 1,
+            correct_option_id: 0,
             explanation: 'Да, типизированный',
             startdif: 1,
             open_period: 5

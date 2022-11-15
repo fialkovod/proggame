@@ -3,7 +3,7 @@ import logger from "./logger.js";
 const increasePowerAgent = (ctx) => {
     console.log("inc power agent");
     setInterval(ctx => {
-        console.log("run inc power agent");
+        //console.log("run inc power agent");
         User.updateMany(
             { $expr: { $lt: [ "$currentPower" , "$maxPower" ] } }, 
             [{ $set: {currentPower:
@@ -11,7 +11,7 @@ const increasePowerAgent = (ctx) => {
             }}] ,
             {new: true}
             )
-            .then(doc=>console.log(doc))
+            //.then(doc=>console.log(doc))
             .catch(err=>logger.debug(ctx, err))
     }, 60*60*1000);   // once per hour
 }
