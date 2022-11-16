@@ -33,6 +33,7 @@ export const sendQuizAction = async (ctx) => {
         is_anonymous: false,
       });
       ret.quizTO = timeout(ctx, QuizTimeOutAction, open_period * 1000);
+      ret.quiz_id = quiz.id
       ctx.session.currentQuiz = ret;
     } else {
       await ctx.reply("Энергия закончилась!");
@@ -56,6 +57,8 @@ const QuizTimeOutAction = async (ctx) => {
   )
     //.then(doc=>console.log(doc))
     .catch((err) => logger.debug(ctx, err));
+  const qr = new Quizrun({ author: user_id, quiz_id: ctx.session.currentQuiz.quiz_id, status: -1}); 
+  await qr.save();  
   ctx.session.currentQuiz = null;
 };
 
@@ -71,10 +74,12 @@ const QuizRightAnswerAction = async (ctx) => {
       { new: true }
     )
       //.then(doc=>console.log(doc))
-      .catch((err) => logger.debug(ctx, err));
-    Quizrun.save({ author: user_id, status: 1 }, { new: true })
-      //.then(doc=>console.log(doc))
-      .catch((err) => logger.debug(ctx, err));
+    .catch((err) => logger.debug(ctx, err));
+    
+    const qr = new Quizrun({ author: user_id, quiz_id: ctx.session.currentQuiz.quiz_id, status: 1});
+    await qr.save();
+    //.then(doc=>console.log(doc))
+    //.catch((err) => logger.debug(ctx, err));
   } else {
     logger.debug(ctx, "Problems with right poll answer");
   }
@@ -94,6 +99,8 @@ const QuizWrongAnswerAction = async (ctx) => {
     )
       //.then(doc=>console.log(doc))
       .catch((err) => logger.debug(ctx, err));
+    const qr = new Quizrun({ author: user_id, quiz_id: ctx.session.currentQuiz.quiz_id, status: 0}); 
+    await qr.save(); 
   } else {
     logger.debug(ctx, "Problems with wrong poll answer");
   }
