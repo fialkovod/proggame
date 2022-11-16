@@ -14,18 +14,13 @@ import mongoose, { Document } from "mongoose";
 export const UserSchema = new mongoose.Schema(
   {
     _id: String,
-    created: Number,
+    createdDate: { type: Date, default: Date.now },
     username: String,
     name: String,
     lastActivity: Number,
     language: String,
-    correctAnswers: { type: Number, required: true, default: 0 },
-    wrongAnswers: { type: Number, required: true, default: 0 },
-    currentPower: { type: Number, required: true, default: 8 },
-    maxPower: { type: Number, required: true, default: 8 },
-    speedPower: { type: Number, required: true, default: 1 },
-    doneTask: { type: Number, required: true, default: 0 },
-    quizruns: [{ type: mongoose.Schema.Types.ObjectId, ref: "Quizrun" }],
+    profiles: [{ type: mongoose.Schema.Types.ObjectId, ref: "Profile" }],
+    activeProfile: { type: mongoose.Schema.Types.ObjectId, ref: "Profile" },
   },
   { _id: false }
 );
