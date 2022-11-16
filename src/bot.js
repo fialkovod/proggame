@@ -87,15 +87,22 @@ mongoose.connection.on("open", () => {
   bot.hears(mainKeyboardShop, (ctx) => ctx.scene.enter("shop"));
   bot.hears(mainKeyboardAbout, (ctx) => ctx.scene.enter("about"));
 
-  bot.hears(/()/, (ctx) => ctx.scene.enter("start"));
+ // bot.hears(/()/, (ctx) => ctx.scene.enter("start"));
 
   bot.on("poll", (ctx) => analizeQuizAction(ctx));
   bot.on("poll_answer", (ctx) => analizeQuizAction(ctx));
 
+
+  bot.hears(/(.*?)/, async (ctx) => {
+    logger.debug(ctx, 'Default handler has fired');
+    const { mainKeyboard } = getMainKeyboard(ctx);
+    await ctx.reply("Не понял", mainKeyboard);
+  });
+
   bot.catch((error) => {
     logger.error(undefined, "Global error has happened, %O", error);
   });
-
+ 
   bot.startPolling();
 
   // Enable graceful stop
