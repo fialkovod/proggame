@@ -31,7 +31,7 @@ about.leave(async (ctx) => {
 
 about.hears(backKeyboardBack, leave());
 about.hears(aboutMainKeyboardBack, leave());
-about.hears(aboutMainKeyboardSummary, accountSummaryAction);
+//about.hears(aboutMainKeyboardSummary, accountSummaryAction);
 about.command("/back", leave());
 
 about.action(/О персонаже/, accountSummaryAction);

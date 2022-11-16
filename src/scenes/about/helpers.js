@@ -7,7 +7,10 @@ export function getAboutMainKeyboard(ctx) {
   const aboutMainKeyboardSummary = "О персонаже";
   const aboutMainKeyboardBack = "Главное меню";
   let aboutMainKeyboard = Markup.keyboard([
-    [aboutMainKeyboardSummary, aboutMainKeyboardBack],
+    [
+      //    aboutMainKeyboardSummary,
+      aboutMainKeyboardBack,
+    ],
   ]).resize();
 
   return {

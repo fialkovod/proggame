@@ -3,6 +3,7 @@ import { Telegraf, Markup, Scenes, session } from "telegraf";
 //import session from 'telegraf/session';
 import mongoose from "mongoose";
 import logger from "./util/logger.js";
+import { getConfig } from "./middlewares/config.js";
 import { getUserInfo } from "./middlewares/user-info.js";
 import startScene from "./scenes/start/index.js";
 import workScene from "./scenes/work/index.js";
@@ -62,6 +63,7 @@ mongoose.connection.on("open", () => {
       },
     })
   );
+  bot.use(getConfig);
   bot.use(getUserInfo);
   bot.use(stage.middleware());
 

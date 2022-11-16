@@ -24,6 +24,8 @@ export const UserSchema = new mongoose.Schema(
     currentPower: { type: Number, required: true, default: 8 },
     maxPower: { type: Number, required: true, default: 8 },
     speedPower: { type: Number, required: true, default: 1 },
+    doneTask: { type: Number, required: true, default: 0 },
+    quizruns: [{ type: mongoose.Schema.Types.ObjectId, ref: "Quizrun" }],
   },
   { _id: false }
 );

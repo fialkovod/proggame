@@ -2,6 +2,7 @@ import { getWorkInlineKeyboard, getAccountSummaryKeyboard } from "./helpers.js";
 import logger from "../../util/logger.js";
 import { timeout } from "../../util/common.js";
 import User from "../../models/User.js";
+import Quizrun from "../../models/Quizrun.js";
 
 import { quizes } from "../../../quiz/js/index.js";
 
@@ -66,9 +67,12 @@ const QuizRightAnswerAction = async (ctx) => {
     await ctx.telegram.sendMessage(user_id, "Отлично, правильный ответ!");
     User.findOneAndUpdate(
       { _id: user_id },
-      { $inc: { correctAnswers: 1 } },
+      { $inc: { correctAnswers: 1, doneTask: 1 } },
       { new: true }
     )
+      //.then(doc=>console.log(doc))
+      .catch((err) => logger.debug(ctx, err));
+    Quizrun.save({ author: user_id, status: 1 }, { new: true })
       //.then(doc=>console.log(doc))
       .catch((err) => logger.debug(ctx, err));
   } else {
