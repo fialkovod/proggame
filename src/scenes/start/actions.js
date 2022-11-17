@@ -24,21 +24,30 @@ export const profileChangeAction = async (ctx) => {
     { activeProfile: profile },
     { new: true }
   );
+  logger.debug(ctx, profile);
   logger.debug(ctx, user);
+  ctx.user = user;
+  ctx.profile = profile;
   await ctx.answerCbQuery();
+  await profileConfirmAction(ctx);
+  
+};
+
+export const profileConfirm = async (ctx) => {
+  console.log(ctx);
+  await ctx.reply(`Выбран профиль: ${ctx.profile.profileName}. Начинаем работу?`, getProfilesConfirmInlineKeyboard(ctx));
 };
 
 export const profileConfirmAction = async (ctx) => {
-  const profilesConfirmKeyboard = getProfilesConfirmInlineKeyboard(ctx);
-  profilesConfirmKeyboard.disable_web_page_preview = true;
-
-  await ctx.reply("переключаем профиль");
-  await sleep(2);
-  await ctx.reply("начинаем работу", profilesConfirmKeyboard);
+  await profileConfirm(ctx);
   await ctx.answerCbQuery();
 };
 
+export const profileSelect = async (ctx) => {
+  await ctx.reply("Выберите профиль:", getProfilesInlineKeyboard());
+};
+
 export const profileSelectAction = async (ctx) => {
-  await ctx.reply("выберите профиль", getProfilesInlineKeyboard());
+  profileSelect(ctx);
   await ctx.answerCbQuery();
 };

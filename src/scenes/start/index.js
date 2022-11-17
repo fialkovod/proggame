@@ -2,7 +2,6 @@ import { Scenes, session } from "telegraf";
 //import { languageChangeAction } from './actions';
 import {
   getProfilesInlineKeyboard,
-  getProfilesConfirmInlineKeyboard,
 } from "./helpers.js";
 import logger from "../../util/logger.js";
 import User from "../../models/User.js";
@@ -10,19 +9,17 @@ import Profile from "../../models/Profile.js";
 import { getMainKeyboard } from "../../util/keyboards.js";
 import {
   profileChangeAction,
-  profileConfirmAction,
-  profileSelectAction,
+  profileConfirm, profileConfirmAction, 
+  profileSelect, profileSelectAction,
 } from "./actions.js";
+import { Markup } from "telegraf";
 
 const { enter, leave } = Scenes.Stage;
 const start = new Scenes.BaseScene("start");
 
 start.enter(async (ctx) => {
-  //console.log("context on start", ctx);
   const uid = String(ctx.from.id);
-  //console.log("ctx.from: ", ctx.from);
   console.log("uid: ", uid);
-  const { mainKeyboard, mainKeyboardWork } = getMainKeyboard(ctx);
 
   let user = await User.findByIdAndUpdate(
     { _id: uid },
@@ -35,17 +32,15 @@ start.enter(async (ctx) => {
     { new: true, upsert: true }
   );
   logger.debug(ctx, user);
+  ctx.user = user;
+  ctx.reply(`Привет, ${user.name}!`, Markup.keyboard(['']).resize());
+  
   if (user.activeProfile) {
     logger.debug(ctx, "user has profile");
-    await ctx.reply(
-      "user registered and has profile",
-      getProfilesConfirmInlineKeyboard()
-    );
+    ctx.profile = await Profile.findById(user.activeProfile);
+    await profileConfirm(ctx);
   } else {
-    await ctx.reply(
-      "Choose profile / Выбери профиль",
-      getProfilesInlineKeyboard()
-    );
+    await profileSelect(ctx)
   }
   //
 
@@ -54,7 +49,7 @@ start.enter(async (ctx) => {
 
 start.leave(async (ctx) => {
   const { mainKeyboard } = getMainKeyboard(ctx);
-  await ctx.reply("выход из сцены старт", mainKeyboard);
+  await ctx.reply("Куда направимся? Работа, магазин?", mainKeyboard);
   await ctx.scene.leave();
 });
 
@@ -62,6 +57,9 @@ start.command("back", leave());
 
 start.action(/profileChange/, profileChangeAction);
 start.action(/profileSelect/, profileSelectAction);
-start.action(/profileConfirm/, profileConfirmAction);
+start.action(/profileConfirm/, async (ctx) => {
+  await ctx.answerCbQuery();
+  ctx.scene.leave();
+});
 
 export default start;
