@@ -15,40 +15,29 @@ start.enter(async (ctx) => {
   const uid = String(ctx.from.id);
   //console.log("ctx.from: ", ctx.from);
   console.log("uid: ", uid);
-  const user = await User.findById(uid);
   const { mainKeyboard, mainKeyboardWork } = getMainKeyboard(ctx);
 
-  if (user) {
-    logger.debug(ctx, "user already registered");
-    await ctx.reply("user already registered");
-  } else {
-    logger.debug(ctx, "New user has been created");
-
-    const newUser = new User({
+  let user = await User.findByIdAndUpdate(
+    { _id: uid },
+    {
       _id: uid,
       username: ctx.from.username,
       name: (ctx.from.first_name + " " + (ctx.from.last_name ?? "")).trim(),
       lastActivity: new Date().getTime(),
-    });
-    await newUser.save();
-    logger.debug(ctx, newUser);
-  }
-  // activate or create profile
-  const profile = await Profile.findOne({ author: uid, active: 1 }).exec();
-  console.log(profile);
-  if (profile) {
-    logger.debug(ctx, "profile already activated");
-    logger.debug(ctx, profile);
-    await ctx.reply("profile already activated");
+    },
+    { new: true, upsert: true }
+  );
+  logger.debug(ctx, user);
+  if (user.activeProfile) {
+    logger.debug(ctx, "user has profile");
+    await ctx.reply("user registered and has profile");
   } else {
-    logger.debug(ctx, "no active profile, need to choose");
     await ctx.reply(
-      "no active profile, need to choose",
+      "Choose profile / Выбери профиль",
       getProfilesInlineKeyboard()
     );
   }
-
-  //await ctx.reply('Choose language / Выбери язык', getLanguageKeyboard());
+  //
 
   //await ctx.scene.leave();
 });
@@ -62,10 +51,5 @@ start.leave(async (ctx) => {
 start.command("back", leave());
 
 start.action(/profileChange/, profileChangeAction);
-
-/*start.action(/confirmAccount/, async (ctx: ContextMessageUpdate) => {
-    await ctx.answerCbQuery();
-    ctx.scene.leave();
-    });*/
 
 export default start;

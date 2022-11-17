@@ -18,7 +18,6 @@ export const UserSchema = new mongoose.Schema(
     username: String,
     name: String,
     lastActivity: Number,
-    language: String,
     profiles: [{ type: mongoose.Schema.Types.ObjectId, ref: "Profile" }],
     activeProfile: { type: mongoose.Schema.Types.ObjectId, ref: "Profile" },
   },
