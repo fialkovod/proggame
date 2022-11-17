@@ -33,7 +33,7 @@ start.enter(async (ctx) => {
   );
   logger.debug(ctx, user);
   ctx.user = user;
-  ctx.reply(`Привет, ${user.name}!`, Markup.keyboard(['']).resize());
+  ctx.reply(`Привет, ${user.name}!`, Markup.removeKeyboard(true));
   
   if (user.activeProfile) {
     logger.debug(ctx, "user has profile");
