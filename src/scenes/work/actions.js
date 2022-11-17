@@ -2,6 +2,7 @@ import { getWorkInlineKeyboard, getAccountSummaryKeyboard } from "./helpers.js";
 import logger from "../../util/logger.js";
 import { timeout } from "../../util/common.js";
 import User from "../../models/User.js";
+import Profile from "../../models/Profile.js";
 import Quizrun from "../../models/Quizrun.js";
 
 import { quizes } from "../../../quiz/js/index.js";
@@ -13,13 +14,13 @@ export const getNextQuizAction = async (ctx) => {
 
 export const sendQuizAction = async (ctx) => {
   if (!ctx.session.currentQuiz) {
-    if (ctx?.user?.currentPower > 0) {
+    if (ctx?.profile?.currentPower > 0) {
       const quiz = await getNextQuizAction(ctx);
-      console.log("user: ", ctx.user);
+      //console.log("user: ", ctx.user);
       //console.log("ctx: ", ctx);
-      let user_id = ctx?.user?._id;
-      User.findOneAndUpdate(
-        { _id: user_id },
+      let profile_id = ctx?.profile?._id;
+      await Profile.findByIdAndUpdate(
+        { _id: profile_id },
         { $inc: { currentPower: -1 } },
         { new: true }
       )
@@ -33,7 +34,7 @@ export const sendQuizAction = async (ctx) => {
         is_anonymous: false,
       });
       ret.quizTO = timeout(ctx, QuizTimeOutAction, open_period * 1000);
-      ret.quiz_id = quiz.id
+      ret.quiz_id = quiz.id;
       ctx.session.currentQuiz = ret;
     } else {
       await ctx.reply("Энергия закончилась!");
@@ -47,36 +48,48 @@ export const sendQuizAction = async (ctx) => {
 
 const QuizTimeOutAction = async (ctx) => {
   console.log("timeout fired");
-  //console.log('ctx: ', ctx);
+  console.log("ctx: ", ctx);
   await ctx.reply("Время вышло");
-  let user_id = ctx?.session?.currentQuiz?.chat?.id;
-  User.findOneAndUpdate(
-    { _id: user_id },
-    { $inc: { wrongAnswers: 1 } },
+  //let user_id = ctx?.session?.currentQuiz?.chat?.id;
+  let profile_id = ctx?.profile?.id;
+  Profile.findOneAndUpdate(
+    { _id: profile_id },
+    { $inc: { timeoutAnswers: 1 } },
     { new: true }
   )
     //.then(doc=>console.log(doc))
     .catch((err) => logger.debug(ctx, err));
-  const qr = new Quizrun({ author: user_id, quiz_id: ctx.session.currentQuiz.quiz_id, status: -1}); 
-  await qr.save();  
+  const qr = new Quizrun({
+    profile: ctx?.profile?.id,
+    quiz_id: ctx.session.currentQuiz.quiz_id,
+    status: -1,
+  });
+  await qr.save();
   ctx.session.currentQuiz = null;
 };
 
 const QuizRightAnswerAction = async (ctx) => {
-  //console.log('timeout fired');
-  //console.log('ctx: ', ctx);
-  let user_id = ctx?.user?._id;
-  if (user_id) {
-    await ctx.telegram.sendMessage(user_id, "Отлично, правильный ответ!");
-    User.findOneAndUpdate(
-      { _id: user_id },
+  console.log("right answer");
+  console.log("ctx: ", ctx);
+  let profile_id = ctx?.profile?._id;
+  if (profile_id) {
+    await ctx.telegram.sendMessage(
+      ctx?.user?._id,
+      "Отлично, правильный ответ!"
+    );
+    Profile.findOneAndUpdate(
+      { _id: profile_id },
       { $inc: { correctAnswers: 1, doneTask: 1 } },
       { new: true }
     )
       //.then(doc=>console.log(doc))
-    .catch((err) => logger.debug(ctx, err));
-    
-    const qr = new Quizrun({ author: user_id, quiz_id: ctx.session.currentQuiz.quiz_id, status: 1});
+      .catch((err) => logger.debug(ctx, err));
+
+    const qr = new Quizrun({
+      profile: ctx?.profile?.id,
+      quiz_id: ctx.session.currentQuiz.quiz_id,
+      status: 1,
+    });
     await qr.save();
     //.then(doc=>console.log(doc))
     //.catch((err) => logger.debug(ctx, err));
@@ -89,18 +102,22 @@ const QuizRightAnswerAction = async (ctx) => {
 const QuizWrongAnswerAction = async (ctx) => {
   //console.log('timeout fired');
   //console.log('ctx: ', ctx);
-  let user_id = ctx?.user?._id;
-  if (user_id) {
-    await ctx.telegram.sendMessage(user_id, "Упс, ответ неверный!");
-    User.findOneAndUpdate(
-      { _id: user_id },
+  let profile_id = ctx?.profile?._id;
+  if (profile_id) {
+    await ctx.telegram.sendMessage(ctx?.user?._id, "Упс, ответ неверный!");
+    Profile.findOneAndUpdate(
+      { _id: profile_id },
       { $inc: { wrongAnswers: 1 } },
       { new: true }
     )
       //.then(doc=>console.log(doc))
       .catch((err) => logger.debug(ctx, err));
-    const qr = new Quizrun({ author: user_id, quiz_id: ctx.session.currentQuiz.quiz_id, status: 0}); 
-    await qr.save(); 
+    const qr = new Quizrun({
+      profile: profile_id,
+      quiz_id: ctx.session.currentQuiz.quiz_id,
+      status: 0,
+    });
+    await qr.save();
   } else {
     logger.debug(ctx, "Problems with wrong poll answer");
   }

@@ -7,6 +7,7 @@ const ProfileSchema = new mongoose.Schema({
   createdDate: { type: Date, default: Date.now },
   correctAnswers: { type: Number, required: true, default: 0 },
   wrongAnswers: { type: Number, required: true, default: 0 },
+  timeoutAnswers: { type: Number, required: true, default: 0 },
   currentPower: { type: Number, required: true, default: 8 },
   maxPower: { type: Number, required: true, default: 8 },
   speedPower: { type: Number, required: true, default: 1 },

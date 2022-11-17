@@ -4,7 +4,7 @@ import { sendQuizAction } from "./actions.js";
 import { getMainKeyboard, getBackKeyboard } from "../../util/keyboards.js";
 import { getWorkInlineKeyboard, getWorkMainKeyboard } from "./helpers.js";
 
-const { enter, leave } = Scenes.Stage;
+const { leave } = Scenes.Stage;
 const work = new Scenes.BaseScene("work");
 const { backKeyboard, backKeyboardBack } = getBackKeyboard();
 const { workMainKeyboard, workMainKeyboardToWork, workMainKeyboardBack } =
@@ -12,13 +12,13 @@ const { workMainKeyboard, workMainKeyboardToWork, workMainKeyboardBack } =
 
 work.enter(async (ctx) => {
   logger.debug(ctx, "Enters work scene");
-
+  console.log(ctx);
   await ctx.reply(
-    "Вошли в сцена работы, ставим новую локальную главную клавиатуру",
+    `Выполнено заданий : ${ctx.profile.doneTask} из 10`,
     workMainKeyboard
   );
   await ctx.reply(
-    "Тут ждем работу на входе с локальной клавиатурой",
+    `Запас энергии: ${ctx.profile.currentPower}`,
     getWorkInlineKeyboard(ctx)
   );
 });
@@ -26,7 +26,7 @@ work.enter(async (ctx) => {
 work.leave(async (ctx) => {
   logger.debug(ctx, "Leaves work scene");
   const { mainKeyboard } = getMainKeyboard(ctx);
-  await ctx.reply("Выход из сцены работы", mainKeyboard);
+  await ctx.reply("Ждем снова на работе!", mainKeyboard);
 });
 
 //settings.command('saveme', leave());

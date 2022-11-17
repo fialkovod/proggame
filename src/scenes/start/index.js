@@ -1,20 +1,18 @@
 import { Scenes, session } from "telegraf";
 //import { languageChangeAction } from './actions';
-import {
-  getProfilesInlineKeyboard,
-} from "./helpers.js";
 import logger from "../../util/logger.js";
 import User from "../../models/User.js";
 import Profile from "../../models/Profile.js";
 import { getMainKeyboard } from "../../util/keyboards.js";
 import {
   profileChangeAction,
-  profileConfirm, profileConfirmAction, 
-  profileSelect, profileSelectAction,
+  profileConfirm,
+  profileSelect,
+  profileSelectAction,
 } from "./actions.js";
 import { Markup } from "telegraf";
 
-const { enter, leave } = Scenes.Stage;
+const { leave } = Scenes.Stage;
 const start = new Scenes.BaseScene("start");
 
 start.enter(async (ctx) => {
@@ -33,14 +31,14 @@ start.enter(async (ctx) => {
   );
   logger.debug(ctx, user);
   ctx.user = user;
-  ctx.reply(`Привет, ${user.name}!`, Markup.removeKeyboard(true));
-  
+  await ctx.reply(`Привет, ${user.name}!`, Markup.removeKeyboard(true));
+
   if (user.activeProfile) {
     logger.debug(ctx, "user has profile");
     ctx.profile = await Profile.findById(user.activeProfile);
     await profileConfirm(ctx);
   } else {
-    await profileSelect(ctx)
+    await profileSelect(ctx);
   }
   //
 
