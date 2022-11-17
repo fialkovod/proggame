@@ -1,7 +1,10 @@
 import logger from "../../util/logger.js";
 import Profile from "../../models/Profile.js";
 import User from "../../models/User.js";
-import { getProfilesConfirmKeyboard } from "./helpers.js";
+import {
+  getProfilesInlineKeyboard,
+  getProfilesConfirmInlineKeyboard,
+} from "./helpers.js";
 import { sleep } from "../../util/common.js";
 
 export const profileChangeAction = async (ctx) => {
@@ -22,13 +25,20 @@ export const profileChangeAction = async (ctx) => {
     { new: true }
   );
   logger.debug(ctx, user);
+  await ctx.answerCbQuery();
+};
 
-  const profilesConfirmKeyboard = getProfilesConfirmKeyboard(ctx);
+export const profileConfirmAction = async (ctx) => {
+  const profilesConfirmKeyboard = getProfilesConfirmInlineKeyboard(ctx);
   profilesConfirmKeyboard.disable_web_page_preview = true;
 
   await ctx.reply("переключаем профиль");
   await sleep(2);
   await ctx.reply("начинаем работу", profilesConfirmKeyboard);
+  await ctx.answerCbQuery();
+};
 
+export const profileSelectAction = async (ctx) => {
+  await ctx.reply("выберите профиль", getProfilesInlineKeyboard());
   await ctx.answerCbQuery();
 };

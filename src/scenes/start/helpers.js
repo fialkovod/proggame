@@ -22,8 +22,12 @@ export function getProfilesInlineKeyboard(ctx) {
   ]);
 }
 
-export function getProfilesConfirmKeyboard(ctx) {
+export function getProfilesConfirmInlineKeyboard(ctx) {
   return Markup.inlineKeyboard([
-    Markup.button.callback("Поехали", JSON.stringify({ a: "confirmProfile" })),
+    Markup.button.callback("Поехали", JSON.stringify({ a: "profileConfirm" })),
+    Markup.button.callback(
+      "Сменить профиль",
+      JSON.stringify({ a: "profileSelect" })
+    ),
   ]);
 }
