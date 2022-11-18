@@ -1,4 +1,4 @@
-export const quizes = [
+export const quizessolidity = [
   {
     id: 1,
     pic: "",

@@ -1,4 +1,4 @@
-export const quizes = [
+export const quizesjs = [
   {
     id: 1,
     pic: "",

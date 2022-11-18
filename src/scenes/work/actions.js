@@ -7,11 +7,20 @@ import {
   getWorkShortInlineKeyboard,
   getWorkLowPowerInlineKeyboard,
 } from "./helpers.js";
-import { quizes } from "../../../quiz/js/index.js";
+import { quizesjs } from "../../../quiz/js/index.js";
+import { quizespython } from "../../../quiz/python/index.js";
+import { quizessolidity } from "../../../quiz/solidity/index.js";
+
+const quizes = [];
+quizes['js'] = quizesjs;
+quizes['python'] = quizespython;
+quizes['solidity'] = quizessolidity;
+
+
 
 const _getNextQuiz = async (ctx) => {
-  let q = Math.floor(Math.random() * quizes.length) + 1;
-  return quizes.find((qw) => qw.id == q);
+  let q = Math.floor(Math.random() * quizes[ctx.profile.profileName].length) + 1;
+  return quizes[ctx.profile.profileName].find((qw) => qw.id == q);
 };
 
 export const sendQuizAction = async (ctx) => {
@@ -70,6 +79,7 @@ const _QuizTimeOut = async (ctx) => {
     .catch((err) => logger.debug(ctx, err));
   const qr = new Quizrun({
     profile: ctx?.profile?.id,
+    profileName: ctx?.profile?.profileName,
     quiz_id: ctx.session.currentQuiz.quiz_id,
     status: -1,
   });
@@ -93,6 +103,7 @@ const _QuizCorrectAnswer = async (ctx) => {
 
     const qr = new Quizrun({
       profile: ctx?.profile?.id,
+      profileName: ctx?.profile?.profileName,
       quiz_id: ctx.session.currentQuiz.quiz_id,
       status: 1,
     });
@@ -120,6 +131,7 @@ const _QuizWrongAnswer = async (ctx) => {
       .catch((err) => logger.debug(ctx, err));
     const qr = new Quizrun({
       profile: profile_id,
+      profileName: ctx?.profile?.profileName,
       quiz_id: ctx.session.currentQuiz.quiz_id,
       status: 0,
     });

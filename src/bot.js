@@ -63,8 +63,8 @@ mongoose.connection.on("open", () => {
       },
     })
   );
-  bot.use(getConfig);
   bot.use(getUserInfo);
+  bot.use(getConfig);
   bot.use(stage.middleware());
 
   bot.telegram.setMyCommands([

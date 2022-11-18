@@ -4,19 +4,19 @@ export function getProfilesInlineKeyboard(ctx) {
     [
       Markup.button.callback(
         "JavaScript",
-        JSON.stringify({ a: "profileChange", p: "JavaScript" })
+        JSON.stringify({ a: "profileChange", p: "js" })
       ),
     ],
     [
       Markup.button.callback(
         "Python",
-        JSON.stringify({ a: "profileChange", p: "Python" })
+        JSON.stringify({ a: "profileChange", p: "python" })
       ),
     ],
     [
       Markup.button.callback(
         "Solidity",
-        JSON.stringify({ a: "profileChange", p: "Solidity" })
+        JSON.stringify({ a: "profileChange", p: "solidity" })
       ),
     ],
   ]);
