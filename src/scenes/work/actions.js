@@ -174,19 +174,19 @@ export const saveDislikeAction = async (ctx) => {
 
 async function _sendResponse(ctx, type) {
   let msg;
-  let energy = `\n Энергия ${ctx.profile.currentPower}/${ctx.profile.maxPower} (-1)`;
-  let plan = `\n Выполнение плана ${ctx.profile.doneTask + 1}/10`;
-  let experience = `\n Опыт ${ctx.profile.correctAnswers + 1} (+1)`;
+  let energy = `\n⚡ Энергия ${ctx.profile.currentPower}/${ctx.profile.maxPower} (-1)`;
+  let plan = `\n🛠️ Выполнение плана ${ctx.profile.doneTask + 1}/10`;
+  let experience = `\n🏆 Опыт ${ctx.profile.correctAnswers + 1} (+1)`;
 
   switch (type) {
     case "correct":
-      msg = "Отлично, правильный ответ!" + energy + experience + plan;
+      msg = "👍 Отлично, правильный ответ!" + energy + experience + plan;
       break;
     case "wrong":
-      msg = "Упс! Ответ неверный!" + energy;
+      msg = "👎 Упс! Ответ неверный!" + energy;
       break;
     case "timeout":
-      msg = "Время вышло!" + energy;
+      msg = "⌛ Время вышло!" + energy;
       break;
   }
   const kbd =
