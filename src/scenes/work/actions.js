@@ -12,14 +12,15 @@ import { quizespython } from "../../../quiz/python/index.js";
 import { quizessolidity } from "../../../quiz/solidity/index.js";
 
 const quizes = [];
-quizes['js'] = quizesjs;
-quizes['python'] = quizespython;
-quizes['solidity'] = quizessolidity;
-
-
+quizes["js"] = quizesjs;
+quizes["python"] = quizespython;
+quizes["solidity"] = quizessolidity;
 
 const _getNextQuiz = async (ctx) => {
-  let q = Math.floor(Math.random() * quizes[ctx.profile.profileName].length) + 1;
+  let q =
+    Math.floor(Math.random() * quizes[ctx.profile.profileName].length) + 1;
+  console.log("len: ", quizes[ctx.profile.profileName].length);
+  console.log("q: ", q);
   return quizes[ctx.profile.profileName].find((qw) => qw.id == q);
 };
 
@@ -39,6 +40,13 @@ export const sendQuizAction = async (ctx) => {
         .catch((err) => logger.debug(ctx, err));
 
       let open_period = quiz.open_period;
+      if (quiz.pic) {
+        console.log(
+          `../../quiz/${ctx.profile.profileName}/pics/${quiz.id}.jpg`
+        );
+        let ph = await ctx.telegram.sendPhoto(ctx.user._id, "./3.jpg");
+        console.log(ph);
+      }
       let ret = await ctx.sendQuiz(quiz.question, quiz.options, {
         correct_option_id: quiz.correct_option_id,
         open_period: open_period,
