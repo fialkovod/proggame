@@ -1,8 +1,17 @@
 import { Scenes, session } from "telegraf";
 import logger from "../../util/logger.js";
-import { sendQuizAction } from "./actions.js";
+import {
+  sendQuizAction,
+  saveLikeAction,
+  saveDislikeAction,
+} from "./actions.js";
 import { getMainKeyboard, getBackKeyboard } from "../../util/keyboards.js";
-import { getWorkInlineKeyboard, getWorkMainKeyboard } from "./helpers.js";
+import {
+  getWorkInlineKeyboard,
+  getWorkMainKeyboard,
+  getWorkShortInlineKeyboard,
+  getWorkLowPowerInlineKeyboard,
+} from "./helpers.js";
 
 const { leave } = Scenes.Stage;
 const work = new Scenes.BaseScene("work");
@@ -12,15 +21,22 @@ const { workMainKeyboard, workMainKeyboardToWork, workMainKeyboardBack } =
 
 work.enter(async (ctx) => {
   logger.debug(ctx, "Enters work scene");
-  console.log(ctx);
+  //console.log(ctx);
   await ctx.reply(
     `Выполнено заданий : ${ctx.profile.doneTask} из 10`,
     workMainKeyboard
   );
-  await ctx.reply(
-    `Запас энергии: ${ctx.profile.currentPower}`,
-    getWorkInlineKeyboard(ctx)
-  );
+  if (ctx.profile.currentPower > 0) {
+    await ctx.reply(
+      `Запас энергии: ${ctx.profile.currentPower}`,
+      getWorkShortInlineKeyboard(ctx)
+    );
+  } else {
+    await ctx.reply(
+      `Запас энергии: ${ctx.profile.currentPower}`,
+      getWorkLowPowerInlineKeyboard(ctx)
+    );
+  }
 });
 
 work.leave(async (ctx) => {
@@ -36,6 +52,8 @@ work.hears(workMainKeyboardBack, leave());
 work.command("/back", leave());
 
 work.action(/sendquiz/, sendQuizAction);
+work.action(/Лайк/, saveLikeAction);
+work.action(/Отстой/, saveDislikeAction);
 work.action(/Главное меню/, leave());
 //work.action(/closeAccountSummary/, closeAccountSummaryAction);
 

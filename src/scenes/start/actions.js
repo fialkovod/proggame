@@ -24,18 +24,20 @@ export const profileChangeAction = async (ctx) => {
     { activeProfile: profile },
     { new: true }
   );
-  logger.debug(ctx, profile);
-  logger.debug(ctx, user);
+  //logger.debug(ctx, profile);
+  //logger.debug(ctx, user);
   ctx.user = user;
   ctx.profile = profile;
   await ctx.answerCbQuery();
   await profileConfirmAction(ctx);
-  
 };
 
 export const profileConfirm = async (ctx) => {
-  console.log(ctx);
-  await ctx.reply(`Выбран профиль: ${ctx.profile.profileName}. Начинаем работу?`, getProfilesConfirmInlineKeyboard(ctx));
+  //console.log(ctx);
+  await ctx.reply(
+    `Выбран профиль: ${ctx.profile.profileName}. Начинаем работу?`,
+    getProfilesConfirmInlineKeyboard(ctx)
+  );
 };
 
 export const profileConfirmAction = async (ctx) => {

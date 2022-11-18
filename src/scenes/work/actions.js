@@ -1,13 +1,15 @@
-import { getWorkInlineKeyboard, getAccountSummaryKeyboard } from "./helpers.js";
 import logger from "../../util/logger.js";
 import { timeout } from "../../util/common.js";
-import User from "../../models/User.js";
 import Profile from "../../models/Profile.js";
 import Quizrun from "../../models/Quizrun.js";
-
+import {
+  getWorkInlineKeyboard,
+  getWorkShortInlineKeyboard,
+  getWorkLowPowerInlineKeyboard,
+} from "./helpers.js";
 import { quizes } from "../../../quiz/js/index.js";
 
-export const getNextQuizAction = async (ctx) => {
+const _getNextQuiz = async (ctx) => {
   let q = Math.floor(Math.random() * quizes.length) + 1;
   return quizes.find((qw) => qw.id == q);
 };
@@ -15,7 +17,7 @@ export const getNextQuizAction = async (ctx) => {
 export const sendQuizAction = async (ctx) => {
   if (!ctx.session.currentQuiz) {
     if (ctx?.profile?.currentPower > 0) {
-      const quiz = await getNextQuizAction(ctx);
+      const quiz = await _getNextQuiz(ctx);
       //console.log("user: ", ctx.user);
       //console.log("ctx: ", ctx);
       let profile_id = ctx?.profile?._id;
@@ -33,7 +35,7 @@ export const sendQuizAction = async (ctx) => {
         open_period: open_period,
         is_anonymous: false,
       });
-      ret.quizTO = timeout(ctx, QuizTimeOutAction, open_period * 1000);
+      ret.quizTO = timeout(ctx, _QuizTimeOut, open_period * 1000);
       ret.quiz_id = quiz.id;
       ctx.session.currentQuiz = ret;
     } else {
@@ -46,10 +48,17 @@ export const sendQuizAction = async (ctx) => {
   // console.log(ret);
 };
 
-const QuizTimeOutAction = async (ctx) => {
-  console.log("timeout fired");
-  console.log("ctx: ", ctx);
-  await ctx.reply("Время вышло");
+const _QuizTimeOut = async (ctx) => {
+  //console.log("timeout fired");
+  //console.log("ctx: ", ctx);
+  ctx.profile.currentPower--;
+  await _sendResponse(ctx, "timeout");
+  /*if (ctx.profile.currentPower > 0) {
+    await ctx.reply("Время вышло", getWorkInlineKeyboard(ctx));
+  } else {
+    await ctx.reply("Время вышло", getWorkLowPowerInlineKeyboard(ctx));
+  }*/
+
   //let user_id = ctx?.session?.currentQuiz?.chat?.id;
   let profile_id = ctx?.profile?.id;
   Profile.findOneAndUpdate(
@@ -68,15 +77,12 @@ const QuizTimeOutAction = async (ctx) => {
   ctx.session.currentQuiz = null;
 };
 
-const QuizRightAnswerAction = async (ctx) => {
-  console.log("right answer");
-  console.log("ctx: ", ctx);
+const _QuizCorrectAnswer = async (ctx) => {
+  //console.log("right answer");
+  //console.log("ctx: ", ctx);
   let profile_id = ctx?.profile?._id;
   if (profile_id) {
-    await ctx.telegram.sendMessage(
-      ctx?.user?._id,
-      "Отлично, правильный ответ!"
-    );
+    await _sendResponse(ctx, "correct");
     Profile.findOneAndUpdate(
       { _id: profile_id },
       { $inc: { correctAnswers: 1, doneTask: 1 } },
@@ -99,12 +105,12 @@ const QuizRightAnswerAction = async (ctx) => {
   ctx.session.currentQuiz = null;
 };
 
-const QuizWrongAnswerAction = async (ctx) => {
+const _QuizWrongAnswer = async (ctx) => {
   //console.log('timeout fired');
   //console.log('ctx: ', ctx);
   let profile_id = ctx?.profile?._id;
   if (profile_id) {
-    await ctx.telegram.sendMessage(ctx?.user?._id, "Упс, ответ неверный!");
+    await _sendResponse(ctx, "wrong");
     Profile.findOneAndUpdate(
       { _id: profile_id },
       { $inc: { wrongAnswers: 1 } },
@@ -136,12 +142,44 @@ export const analizeQuizAction = async (ctx) => {
       ctxPollId === currentQuiz.poll.id &&
       ctxOptionId === currentQuiz.poll.correct_option_id
     ) {
-      await QuizRightAnswerAction(ctx);
+      await _QuizCorrectAnswer(ctx);
     } else {
-      await QuizWrongAnswerAction(ctx);
+      await _QuizWrongAnswer(ctx);
     }
   } else {
     logger.debug(ctx, "Problems with poll answer");
   }
   ctx.session.currentQuiz = null;
 };
+
+export const saveLikeAction = async (ctx) => {
+  console.log("like action fired");
+};
+
+export const saveDislikeAction = async (ctx) => {
+  console.log("dislike action fired");
+};
+
+async function _sendResponse(ctx, type) {
+  let msg;
+  let energy = `\n Энергия ${ctx.profile.currentPower}/${ctx.profile.maxPower} (-1)`;
+  let plan = `\n Выполнение плана ${ctx.profile.doneTask + 1}/10`;
+  let experience = `\n Опыт ${ctx.profile.correctAnswers + 1} (+1)`;
+
+  switch (type) {
+    case "correct":
+      msg = "Отлично, правильный ответ!" + energy + experience + plan;
+      break;
+    case "wrong":
+      msg = "Упс! Ответ неверный!" + energy;
+      break;
+    case "timeout":
+      msg = "Время вышло!" + energy;
+      break;
+  }
+  const kbd =
+    ctx.profile.currentPower > 0
+      ? getWorkInlineKeyboard(ctx)
+      : getWorkLowPowerInlineKeyboard(ctx);
+  await ctx.telegram.sendMessage(ctx?.user?._id, `${msg}`, kbd);
+}

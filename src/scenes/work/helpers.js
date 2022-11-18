@@ -20,14 +20,27 @@ export function getWorkMainKeyboard(ctx) {
 
 export function getWorkInlineKeyboard(ctx) {
   return Markup.inlineKeyboard([
+    [
+      Markup.button.callback("Работать", "sendquiz"),
+      Markup.button.callback("Главное меню", "Главное меню"),
+    ],
+    [
+      Markup.button.callback("Лайк", "Лайк"),
+      Markup.button.callback("Отстой", "Отстой"),
+    ],
+  ]);
+}
+
+export function getWorkShortInlineKeyboard(ctx) {
+  return Markup.inlineKeyboard([
     Markup.button.callback("Работать", "sendquiz"),
     Markup.button.callback("Главное меню", "Главное меню"),
   ]);
 }
 
-/**
- * Returns account summary keyboard
- */
-export function getAccountSummaryKeyboard(ctx) {
-  return Markup.inlineKeyboard([Markup.button.callback("Назад1", "Назад3")]);
+export function getWorkLowPowerInlineKeyboard(ctx) {
+  return Markup.inlineKeyboard([
+    Markup.button.callback("Энергетик", "Энергетик"),
+    Markup.button.callback("Главное меню", "Главное меню"),
+  ]);
 }

@@ -17,7 +17,7 @@ const start = new Scenes.BaseScene("start");
 
 start.enter(async (ctx) => {
   const uid = String(ctx.from.id);
-  console.log("uid: ", uid);
+  //console.log("uid: ", uid);
 
   let user = await User.findByIdAndUpdate(
     { _id: uid },
@@ -29,7 +29,7 @@ start.enter(async (ctx) => {
     },
     { new: true, upsert: true }
   );
-  logger.debug(ctx, user);
+  //logger.debug(ctx, user);
   ctx.user = user;
   await ctx.reply(`Привет, ${user.name}!`, Markup.removeKeyboard(true));
 
