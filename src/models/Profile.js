@@ -1,4 +1,4 @@
-import mongoose, { Document } from "mongoose";
+import mongoose from "mongoose";
 
 const ProfileSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
@@ -8,6 +8,8 @@ const ProfileSchema = new mongoose.Schema({
   correctAnswers: { type: Number, required: true, default: 0 },
   wrongAnswers: { type: Number, required: true, default: 0 },
   timeoutAnswers: { type: Number, required: true, default: 0 },
+  currentReputation: { type: Number, required: true, default: 5 },
+  currentPosition: { type: Number, required: true, default: 1 },
   currentPower: { type: Number, required: true, default: 8 },
   maxPower: { type: Number, required: true, default: 8 },
   speedPower: { type: Number, required: true, default: 1 },

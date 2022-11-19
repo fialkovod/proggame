@@ -4,7 +4,6 @@ import Profile from "../../models/Profile.js";
 import Quizrun from "../../models/Quizrun.js";
 import {
   getWorkInlineKeyboard,
-  getWorkShortInlineKeyboard,
   getWorkLowPowerInlineKeyboard,
 } from "./helpers.js";
 import { quizesjs } from "../../../quiz/js/index.js";
@@ -27,7 +26,6 @@ const _getNextQuiz = async (ctx) => {
     Math.floor(Math.random() * quizes[ctx.profile.profileName].length) + 1;
   console.log("len: ", quizes[ctx.profile.profileName].length);
   console.log("q: ", q);
-  q = 3;
   return quizes[ctx.profile.profileName].find((qw) => qw.id == q);
 };
 

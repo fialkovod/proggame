@@ -6,7 +6,7 @@ import { Markup } from "telegraf";
 
 export function getWorkMainKeyboard(ctx) {
   const workMainKeyboardToWork = "Работать";
-  const workMainKeyboardBack = "Главное меню";
+  const workMainKeyboardBack = "Меню";
   let workMainKeyboard = Markup.keyboard([
     [workMainKeyboardToWork, workMainKeyboardBack],
   ]).resize();

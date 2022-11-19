@@ -1,6 +1,4 @@
-import { Telegraf, Markup, Scenes, session } from "telegraf";
-//import Stage from 'telegraf/stage';
-//import session from 'telegraf/session';
+import { Telegraf, Scenes, session } from "telegraf";
 import mongoose from "mongoose";
 import logger from "./util/logger.js";
 import { getConfig } from "./middlewares/config.js";
@@ -10,21 +8,12 @@ import workScene from "./scenes/work/index.js";
 import shopScene from "./scenes/shop/index.js";
 import aboutScene from "./scenes/about/index.js";
 import dotenv from "dotenv";
-import { getMainKeyboard, getBackKeyboard } from "./util/keyboards.js";
+import { getMainKeyboard } from "./util/keyboards.js";
 import { analizeQuizAction } from "./scenes/work/actions.js";
 import { startAgents } from "./util/agents.js";
-//import { session } from 'telegraf';
-//const dotenv = require("dotenv")
+
 const envFile = process.env.NODE_ENV === "dev" ? "dev.env" : "prod.env";
 dotenv.config({ path: envFile });
-
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename) + "\\";
-
-//const telegram = new Telegram(process.env.TELEGRAM_TOKEN, {});
 
 mongoose.connect(`mongodb://localhost:27017/${process.env.DATABASE_HOST}`, {
   //useNewUrlParser: true,
@@ -59,8 +48,6 @@ mongoose.connection.on("open", () => {
           return `${id}:${id}`;
         }
 
-        // fallback
-        // ⚠️ Be careful, these values ​​may not be available.
         if (from.id == null) {
           return undefined;
         }
@@ -78,12 +65,12 @@ mongoose.connection.on("open", () => {
     { command: "/about", description: "О боте" },
   ]);
 
+  bot.start((ctx) => ctx.scene.enter("start"));
   bot.command("/start", (ctx) => ctx.scene.enter("start"));
   bot.command("/work", (ctx) => ctx.scene.enter("work"));
   bot.command("/shop", (ctx) => ctx.scene.enter("shop"));
   bot.command("/about", (ctx) => ctx.scene.enter("about"));
   const {
-    mainKeyboard,
     mainKeyboardWork,
     mainKeyboardShop,
     mainKeyboardAbout,
@@ -92,12 +79,15 @@ mongoose.connection.on("open", () => {
   bot.hears(mainKeyboardWork, (ctx) => ctx.scene.enter("work"));
   bot.hears(mainKeyboardShop, (ctx) => ctx.scene.enter("shop"));
   bot.hears(mainKeyboardAbout, (ctx) => ctx.scene.enter("about"));
+  
 
   // bot.hears(/()/, (ctx) => ctx.scene.enter("start"));
 
   bot.on("poll", (ctx) => analizeQuizAction(ctx));
-  bot.on("poll_answer", (ctx) => analizeQuizAction(ctx));
+  bot.on("poll_answer", async (ctx) => await ctx.reply("Главное меню", getMainKeyboard(ctx)));
 
+
+  bot.hears("Меню", (ctx) => ctx.scene.enter("about")); 
   bot.hears(/(.*?)/, async (ctx) => {
     logger.debug(ctx, "Default handler has fired");
     // const { mainKeyboard } = getMainKeyboard(ctx);
