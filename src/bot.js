@@ -18,6 +18,12 @@ import { startAgents } from "./util/agents.js";
 const envFile = process.env.NODE_ENV === "dev" ? "dev.env" : "prod.env";
 dotenv.config({ path: envFile });
 
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename) + "\\";
+
 //const telegram = new Telegram(process.env.TELEGRAM_TOKEN, {});
 
 mongoose.connect(`mongodb://localhost:27017/${process.env.DATABASE_HOST}`, {

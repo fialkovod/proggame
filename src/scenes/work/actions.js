@@ -11,6 +11,12 @@ import { quizesjs } from "../../../quiz/js/index.js";
 import { quizespython } from "../../../quiz/python/index.js";
 import { quizessolidity } from "../../../quiz/solidity/index.js";
 
+import { fileURLToPath } from "url";
+import { join, dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const quizes = [];
 quizes["js"] = quizesjs;
 quizes["python"] = quizespython;
@@ -21,6 +27,7 @@ const _getNextQuiz = async (ctx) => {
     Math.floor(Math.random() * quizes[ctx.profile.profileName].length) + 1;
   console.log("len: ", quizes[ctx.profile.profileName].length);
   console.log("q: ", q);
+  q = 3;
   return quizes[ctx.profile.profileName].find((qw) => qw.id == q);
 };
 
@@ -41,11 +48,20 @@ export const sendQuizAction = async (ctx) => {
 
       let open_period = quiz.open_period;
       if (quiz.pic) {
-        console.log(
-          `../../quiz/${ctx.profile.profileName}/pics/${quiz.id}.jpg`
-        );
-        let ph = await ctx.telegram.sendPhoto(ctx.user._id, "./3.jpg");
-        console.log(ph);
+        await ctx
+          .sendPhoto({
+            source: join(
+              __dirname,
+              "..",
+              "..",
+              "..",
+              "quiz",
+              ctx.profile.profileName,
+              "pics",
+              quiz.id + ".jpg"
+            ),
+          })
+          .catch((err) => logger.debug(ctx, err));
       }
       let ret = await ctx.sendQuiz(quiz.question, quiz.options, {
         correct_option_id: quiz.correct_option_id,
