@@ -14,6 +14,9 @@ const ProfileSchema = new mongoose.Schema({
   maxPower: { type: Number, required: true, default: 8 },
   speedPower: { type: Number, required: true, default: 1 },
   doneTask: { type: Number, required: true, default: 0 },
+  currentSalary: { type: Number, required: true, default: 200 },
+  currentRent: { type: Number, required: true, default: 50 },
+  currentBudget: { type: Number, required: true, default: 0 },
   quizruns: [{ type: mongoose.Schema.Types.ObjectId, ref: "Quizrun" }],
 });
 

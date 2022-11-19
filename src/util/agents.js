@@ -1,7 +1,7 @@
 import Profile from "../models/Profile.js";
 import logger from "./logger.js";
 
-const updateJobsDoneAndReputationAgent = async (ctx) => {
+const updateJobsDoneAndReputationAndBudgetAgent = async (ctx) => {
   await Profile.updateMany(
     {},
     [
@@ -17,6 +17,29 @@ const updateJobsDoneAndReputationAgent = async (ctx) => {
               },
               then: {$sum: ["$currentReputation", 1]},
               else: { $sum: ["$currentReputation", -1] },
+            },
+          },
+        },
+      },
+      {
+        $set: {
+          currentBudget: {
+            $subtract: [ {$add: ["$currentBudget", {$ceil: {$multiply: ["$currentSalary", "$doneTask", 0.1 ]}}]}, "$currentRent"]
+          },
+        },
+      },
+      {
+        $set: {
+          currentBudget: {
+            $cond: {
+              if: {
+                $lte: [
+                  "$currentBudget",
+                  0,
+                ],
+              },
+              then: 0,
+              else: "$currentBudget",
             },
           },
         },
@@ -61,7 +84,7 @@ const increasePowerAgent = (ctx) => {
 
 
 const runDailyAgents = (ctx) => {
-  updateJobsDoneAndReputationAgent();
+  updateJobsDoneAndReputationAndBudgetAgent();
 }
 
 
