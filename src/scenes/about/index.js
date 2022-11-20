@@ -5,6 +5,12 @@ import { getMainKeyboard, getBackKeyboard } from "../../util/keyboards.js";
 import { getAboutInlineKeyboard, getAboutMainKeyboard } from "./helpers.js";
 import { accountSummaryAction } from "./actions.js";
 
+import { fileURLToPath } from "url";
+import { join, dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const { enter, leave } = Scenes.Stage;
 const about = new Scenes.BaseScene("about");
 const { backKeyboard, backKeyboardBack } = getBackKeyboard();
@@ -14,12 +20,18 @@ const { mainKeyboard } = getMainKeyboard();
 
 about.enter(async (ctx) => {
   logger.debug(ctx, "Enters about scene");
+  //await ctx.reply("Статистика персонажа", aboutMainKeyboard);
+  await ctx.sendPhoto({
+    source: join(
+      __dirname,
+      "..",
+      "..",
+      "pics",
+      "person.jpg"
+    ),
+  }, aboutMainKeyboard);
   await ctx.reply(
-    "Вошли в сцену about, ставим новую локальную главную клавиатуру",
-    aboutMainKeyboard
-  );
-  await ctx.reply(
-    "Вот тут про бота, с инлайн-клавой",
+    "Вот тут про персонажа, с инлайн-клавой",
     getAboutInlineKeyboard(ctx)
   );
 });

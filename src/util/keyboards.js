@@ -12,7 +12,6 @@ export const getBackKeyboard = (ctx) => {
   };
 };
 
-
 export function getRestartInlineKeyboard(ctx) {
   return Markup.inlineKeyboard([
     Markup.button.callback("Перезапустить", "restart"),
@@ -26,15 +25,15 @@ export function getWorkShopInlineKeyboard(ctx) {
   ]);
 }
 
-
 export const getMainKeyboard = (ctx) => {
   const mainKeyboardWork = "Работа";
   const mainKeyboardShop = "Магазин";
+  const mainKeyboardAbout = "Персонаж";
   const mainKeyboardSupport = "Поддержка";
-  const mainKeyboardAbout = "О боте";
+
   let mainKeyboard = Markup.keyboard([
     [mainKeyboardWork, mainKeyboardShop],
-    [mainKeyboardSupport, mainKeyboardAbout],
+    [mainKeyboardAbout, mainKeyboardSupport],
   ]);
   mainKeyboard = mainKeyboard.resize();
 
