@@ -3,7 +3,7 @@ import { Scenes, session } from "telegraf";
 import logger from "../../util/logger.js";
 import User from "../../models/User.js";
 import Profile from "../../models/Profile.js";
-import { getMainKeyboard } from "../../util/keyboards.js";
+import { getMainKeyboard, getWorkShopInlineKeyboard } from "../../util/keyboards.js";
 import {
   profileChangeAction,
   profileConfirm,
@@ -46,8 +46,8 @@ start.enter(async (ctx) => {
 });
 
 start.leave(async (ctx) => {
-  const { mainKeyboard } = getMainKeyboard(ctx);
-  await ctx.reply("Куда направимся? Работа, магазин?", mainKeyboard);
+  await ctx.reply("Отлично!", getMainKeyboard());
+  await ctx.reply("Куда направимся? Работа, магазин?", getWorkShopInlineKeyboard());
   await ctx.scene.leave();
 });
 

@@ -8,7 +8,7 @@ import workScene from "./scenes/work/index.js";
 import shopScene from "./scenes/shop/index.js";
 import aboutScene from "./scenes/about/index.js";
 import dotenv from "dotenv";
-import { getMainKeyboard, getBackKeyboard, getRestartInlineKeyboard } from "./util/keyboards.js";
+import { getMainKeyboard, getRestartInlineKeyboard } from "./util/keyboards.js";
 import { analizeQuizAction } from "./scenes/work/actions.js";
 import { startAgents } from "./util/agents.js";
 
@@ -90,6 +90,8 @@ mongoose.connection.on("open", () => {
 
   bot.hears("Меню", (ctx) => ctx.scene.enter("start")); 
   bot.action("restart", (ctx) => ctx.scene.enter("start")); 
+  bot.action("gowork", (ctx) => ctx.scene.enter("work")); 
+  bot.action("goshop", (ctx) => ctx.scene.enter("shop")); 
   bot.hears(/(.*?)/, async (ctx) => {
     logger.debug(ctx, "Default handler has fired");
     // const { mainKeyboard } = getMainKeyboard(ctx);

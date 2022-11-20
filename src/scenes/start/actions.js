@@ -35,7 +35,7 @@ export const profileChangeAction = async (ctx) => {
 export const profileConfirm = async (ctx) => {
   //console.log(ctx);
   await ctx.reply(
-    `Выбран профиль: ${ctx.profile.profileName}. Начинаем работу?`,
+    `Выбран профиль: ${ctx.profile.profileName}. Приступим?`,
     getProfilesConfirmInlineKeyboard(ctx)
   );
 };
