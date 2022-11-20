@@ -60,5 +60,5 @@ work.action(/Главное меню/, leave());
 /*work.on("poll_answer", ctx => console.log(ctx))
 work.on("poll", ctx => console.log("poll: ", ctx))
 */
-
+ 
 export default work;

@@ -5,7 +5,6 @@ import Quizrun from "../../models/Quizrun.js";
 import Feedback from "../../models/Feedback.js";
 import {
   getWorkInlineKeyboard,
-  getWorkShortInlineKeyboard,
   getWorkLowPowerInlineKeyboard,
 } from "./helpers.js";
 import { quizesjs } from "../../../quiz/js/index.js";
