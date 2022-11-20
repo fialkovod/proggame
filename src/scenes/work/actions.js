@@ -166,6 +166,7 @@ const _QuizWrongAnswer = async (ctx) => {
 };
 
 export const analizeQuizAction = async (ctx) => {
+  console.log("ctx: ",ctx)
   let user_id = ctx?.user._id;
   if (user_id) {
     ctx.session.currentQuiz.quizTO.cancel();
@@ -197,7 +198,7 @@ export const saveLikeAction = async (ctx) => {
     quiz_id: quiz_id,
   });
   if (fb) {
-    ctx.reply("Уже голосовали");
+    ctx.reply("Голос уже учтен");
   } else {
     const newfb = new Feedback({
       profile: ctx?.profile?.id,
@@ -220,7 +221,7 @@ export const saveDislikeAction = async (ctx) => {
     quiz_id: quiz_id,
   });
   if (fb) {
-    ctx.reply("Уже голосовали");
+    ctx.reply("Голос уже учтен");
   } else {
     const newfb = new Feedback({
       profile: ctx?.profile?.id,
@@ -232,22 +233,23 @@ export const saveDislikeAction = async (ctx) => {
     ctx.reply("Очень жаль");
   }
 };
-
+ 
 async function _sendResponse(ctx, type) {
   let msg;
   let energy = `\n⚡ Энергия ${ctx.profile.currentPower}/${ctx.profile.maxPower} (-1)`;
   let plan = `\n🛠️ Выполнение плана ${ctx.profile.doneTask + 1}/10`;
   let experience = `\n🏆 Опыт ${ctx.profile.correctAnswers + 1} (+1)`;
+  let vote = `\nПроголосуй за вопрос 👍 или 👎`;
 
   switch (type) {
     case "correct":
-      msg = "👍 Отлично, правильный ответ!" + energy + experience + plan;
+      msg = "👍 Отлично, правильный ответ!" + energy + experience + plan + vote;
       break;
     case "wrong":
-      msg = "👎 Упс! Ответ неверный!" + energy;
+      msg = "👎 Упс! Ответ неверный!" + energy + vote;
       break;
     case "timeout":
-      msg = "⌛ Время вышло!" + energy;
+      msg = "⌛ Время вышло!" + energy + vote;
       break;
   }
   const kbd =

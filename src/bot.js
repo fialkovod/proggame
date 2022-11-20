@@ -8,7 +8,7 @@ import workScene from "./scenes/work/index.js";
 import shopScene from "./scenes/shop/index.js";
 import aboutScene from "./scenes/about/index.js";
 import dotenv from "dotenv";
-import { getMainKeyboard } from "./util/keyboards.js";
+import { getMainKeyboard, getBackKeyboard, getRestartInlineKeyboard } from "./util/keyboards.js";
 import { analizeQuizAction } from "./scenes/work/actions.js";
 import { startAgents } from "./util/agents.js";
 
@@ -84,14 +84,16 @@ mongoose.connection.on("open", () => {
   // bot.hears(/()/, (ctx) => ctx.scene.enter("start"));
 
   bot.on("poll", (ctx) => analizeQuizAction(ctx));
-  bot.on("poll_answer", async (ctx) => await ctx.reply("Главное меню", getMainKeyboard(ctx)));
+  //bot.on("poll_answer", async (ctx) => await ctx.reply("Главное меню", getMainKeyboard(ctx)));
+  bot.on("poll_answer", (ctx) => analizeQuizAction(ctx));
 
 
-  bot.hears("Меню", (ctx) => ctx.scene.enter("about")); 
+  bot.hears("Меню", (ctx) => ctx.scene.enter("start")); 
+  bot.action("restart", (ctx) => ctx.scene.enter("start")); 
   bot.hears(/(.*?)/, async (ctx) => {
     logger.debug(ctx, "Default handler has fired");
     // const { mainKeyboard } = getMainKeyboard(ctx);
-    await ctx.reply("Не понял");
+    await ctx.reply("Не понял", getRestartInlineKeyboard());
   });
 
   bot.catch((error) => {

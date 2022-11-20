@@ -29,11 +29,11 @@ export function getWorkInlineKeyboard(ctx) {
     ],
     [
       Markup.button.callback(
-        "Лайк",
+        "👍 Лайк",
         JSON.stringify({ a: "plusVote", p: ctx.session.currentQuiz.quiz_id })
       ),
       Markup.button.callback(
-        "Отстой",
+        "👎 Отстой",
         JSON.stringify({ a: "minusVote", p: ctx.session.currentQuiz.quiz_id })
       ),
     ],

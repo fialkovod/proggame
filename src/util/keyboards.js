@@ -16,6 +16,13 @@ export const getBackKeyboard = (ctx) => {
   };
 };
 
+
+export function getRestartInlineKeyboard(ctx) {
+  return Markup.inlineKeyboard([
+    Markup.button.callback("Перезапустить", "restart"),
+  ]);
+}
+
 /**
  * Returns main keyboard and its buttons according to the language
  * @param ctx - telegram context
