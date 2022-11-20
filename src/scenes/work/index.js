@@ -52,8 +52,8 @@ work.hears(workMainKeyboardBack, leave());
 work.command("/back", leave());
 
 work.action(/sendquiz/, sendQuizAction);
-work.action(/Лайк/, saveLikeAction);
-work.action(/Отстой/, saveDislikeAction);
+work.action(/plusVote/, saveLikeAction);
+work.action(/minusVote/, saveDislikeAction);
 work.action(/Главное меню/, leave());
 //work.action(/closeAccountSummary/, closeAccountSummaryAction);
 

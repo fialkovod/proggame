@@ -1,12 +1,12 @@
 export const timeout = function (ctx, func, ms) {
-  let timeout, promise;
+  let to, promise;
   promise = new Promise(function (resolve, reject) {
-    timeout = setTimeout(() => resolve(func(ctx)), ms);
+    to = setTimeout(() => resolve(func(ctx)), ms);
   });
   return {
     promise: promise,
     cancel: function () {
-      clearTimeout(timeout);
+      clearTimeout(to);
     },
   };
 };

@@ -2,6 +2,7 @@ import logger from "../../util/logger.js";
 import { timeout } from "../../util/common.js";
 import Profile from "../../models/Profile.js";
 import Quizrun from "../../models/Quizrun.js";
+import Feedback from "../../models/Feedback.js";
 import {
   getWorkInlineKeyboard,
   getWorkShortInlineKeyboard,
@@ -25,9 +26,8 @@ quizes["solidity"] = quizessolidity;
 const _getNextQuiz = async (ctx) => {
   let q =
     Math.floor(Math.random() * quizes[ctx.profile.profileName].length) + 1;
-  console.log("len: ", quizes[ctx.profile.profileName].length);
-  console.log("q: ", q);
-  q = 3;
+  //console.log("len: ", quizes[ctx.profile.profileName].length);
+  //console.log("q: ", q);
   return quizes[ctx.profile.profileName].find((qw) => qw.id == q);
 };
 
@@ -189,11 +189,49 @@ export const analizeQuizAction = async (ctx) => {
 };
 
 export const saveLikeAction = async (ctx) => {
-  console.log("like action fired");
+  const buttonData = JSON.parse(ctx.callbackQuery.data);
+  const quiz_id = buttonData.p;
+
+  console.log(`like action fired for quiz ${quiz_id}`);
+  const fb = await Feedback.findOne({
+    profile: ctx?.profile?.id,
+    quiz_id: quiz_id,
+  });
+  if (fb) {
+    ctx.reply("Уже голосовали");
+  } else {
+    const newfb = new Feedback({
+      profile: ctx?.profile?.id,
+      profileName: ctx?.profile?.profileName,
+      quiz_id: quiz_id,
+      status: 1,
+    });
+    await newfb.save();
+    ctx.reply("Очень рады");
+  }
 };
 
 export const saveDislikeAction = async (ctx) => {
-  console.log("dislike action fired");
+  const buttonData = JSON.parse(ctx.callbackQuery.data);
+  const quiz_id = buttonData.p;
+
+  console.log(`dislike action fired for quiz ${quiz_id}`);
+  const fb = await Feedback.findOne({
+    profile: ctx?.profile?.id,
+    quiz_id: quiz_id,
+  });
+  if (fb) {
+    ctx.reply("Уже голосовали");
+  } else {
+    const newfb = new Feedback({
+      profile: ctx?.profile?.id,
+      profileName: ctx?.profile?.profileName,
+      quiz_id: quiz_id,
+      status: -1,
+    });
+    await newfb.save();
+    ctx.reply("Очень жаль");
+  }
 };
 
 async function _sendResponse(ctx, type) {
