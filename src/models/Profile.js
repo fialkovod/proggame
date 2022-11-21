@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const ProfileSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   author: { type: String, ref: "User" },
-  profileName: { type: String, required: true, default: "JavaScript" },
+  profileName: { type: String, required: true, default: "js" },
   createdDate: { type: Date, default: Date.now },
   correctAnswers: { type: Number, required: true, default: 0 },
   wrongAnswers: { type: Number, required: true, default: 0 },

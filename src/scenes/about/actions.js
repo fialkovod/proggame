@@ -1,20 +1,53 @@
 import { getAboutInlineKeyboard } from "./helpers.js";
 import logger from "../../util/logger.js";
-import Profile from "../../models/Profile.js";
-import { getBackKeyboard } from "../../util/keyboards.js";
+
+export const makeSummaryText = (ctx) => {
+  return `про аккаунт ${ctx.user.username}, 
+    ID: ${ctx.user._id}, 
+    power: ${ctx.profile.currentPower}, 
+    maxPower: ${ctx.profile.maxPower}, 
+    speedPower: ${ctx.profile.speedPower}, 
+    doneTask: ${ctx.profile.doneTask}, 
+    ${process.env.npm_package_version}`;
+};
+
+export const makeInventoryText = (ctx) => {
+  return `про аккаунт ${ctx.user.username}, 
+    ID: ${ctx.user._id}, 
+    power: ${ctx.profile.currentPower}, 
+    maxPower: ${ctx.profile.maxPower}, 
+    speedPower: ${ctx.profile.speedPower}, 
+    doneTask: ${ctx.profile.doneTask}, 
+    ${process.env.npm_package_version}`;
+};
+
+export const makeStatisticsText = (ctx) => {
+  return `про аккаунт ${ctx.user.username}, 
+    ID: ${ctx.user._id}, 
+    power: ${ctx.profile.currentPower}, 
+    maxPower: ${ctx.profile.maxPower}, 
+    speedPower: ${ctx.profile.speedPower}, 
+    doneTask: ${ctx.profile.doneTask}, 
+    ${process.env.npm_package_version}`;
+};
 
 export const accountSummaryAction = async (ctx) => {
   logger.debug(ctx, "Checking account summary");
-  const profile = await Profile.findById(ctx.profile.id);
-  await ctx.reply(
-    `про аккаунт ${ctx.user.username}, 
-    ID: ${ctx.user._id}, 
-    power: ${profile.currentPower}, 
-    maxPower: ${profile.maxPower}, 
-    speedPower: ${profile.speedPower}, 
-    doneTask: ${profile.doneTask}, 
-    ${process.env.npm_package_version}`,
-    getAboutInlineKeyboard(ctx)
-  );
+  //console.log("ctx:", ctx);
+  await ctx.reply(makeSummaryText(ctx), getAboutInlineKeyboard(ctx));
+  await ctx.answerCbQuery();
+};
+
+export const accountInventoryAction = async (ctx) => {
+  logger.debug(ctx, "Checking account inventory");
+  //console.log("ctx:", ctx);
+  await ctx.reply(makeInventoryText(ctx), getAboutInlineKeyboard(ctx));
+  await ctx.answerCbQuery();
+};
+
+export const accountStatisticsAction = async (ctx) => {
+  logger.debug(ctx, "Checking account statistics");
+  //console.log("ctx:", ctx);
+  await ctx.reply(makeStatisticsText(ctx), getAboutInlineKeyboard(ctx));
   await ctx.answerCbQuery();
 };
