@@ -166,10 +166,11 @@ const _QuizWrongAnswer = async (ctx) => {
 };
 
 export const analizeQuizAction = async (ctx) => {
-  console.log("ctx: ",ctx)
+  console.log("ctx: ", ctx);
   let user_id = ctx?.user._id;
   if (user_id) {
-    ctx.session.currentQuiz.quizTO.cancel();
+    //ctx.session.currentQuiz.quizTO.cancel();
+    clearTimeout(ctx.session.currentQuiz.quizTO.cancel);
     let currentQuiz = ctx.session.currentQuiz;
     let ctxPollId = ctx.update.poll_answer.poll_id;
     let ctxOptionId = ctx.update.poll_answer.option_ids[0];
@@ -233,7 +234,7 @@ export const saveDislikeAction = async (ctx) => {
     ctx.reply("Очень жаль");
   }
 };
- 
+
 async function _sendResponse(ctx, type) {
   let msg;
   let energy = `\n⚡ Энергия ${ctx.profile.currentPower}/${ctx.profile.maxPower} (-1)`;

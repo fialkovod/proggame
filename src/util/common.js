@@ -5,9 +5,10 @@ export const timeout = function (ctx, func, ms) {
   });
   return {
     promise: promise,
-    cancel: function () {
+    /*cancel: function () {
       clearTimeout(to);
-    },
+    },*/
+    cancel: to,
   };
 };
 
